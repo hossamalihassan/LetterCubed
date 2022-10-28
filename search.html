@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styling/main-styling.css">
+        <link rel="stylesheet" href="styling/search-page-styling.css">
         <title>LetterCubed - Search</title>
     </head>
     <body>
@@ -31,14 +32,14 @@
 
         <!-- main container -->
         <div class="container">
-            <br><br><br>
             <!-- input search -->
-            <section class="search-input">
+            <section class="search-section">
                 <form method="get" class="search-form">
-                    <label for="search-tag">Search for a movie...</label>
-                    <br>
-                    <input type="text" name="search" id="search-tag">
-                    <button type="submit">Search</button>
+                    <label for="search-tag" class="search-label">Search for a movie...</label>
+                    <div class="search-input">
+                        <input type="text" name="search" id="search-tag">
+                        <button type="submit" class="search-btn">Search</button>
+                    </div>
                 </form>
             </section>
 

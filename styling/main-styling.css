@@ -9,6 +9,11 @@
     src: url('../fonts/KindestrealityDemo-1GrZe.ttf');
 }
 
+@font-face {
+    font-family: MPLUSRounded1c;
+    src: url('../fonts/MPLUSRounded1c-Regular.ttf');
+}
+
 body {
     box-sizing: border-box;
     margin: 0;
@@ -68,6 +73,13 @@ nav .container .links ul li.link-item a {
 
 nav .container .links ul li.link-item a:hover {
     color: #DEE2E6;
+}
+
+
+/* main-container */
+.container {
+    width: 80%;
+    margin: auto;
 }
 
 @media (max-width: 908px) {
