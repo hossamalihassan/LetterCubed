@@ -1,0 +1,78 @@
+/* fonts */
+@font-face {
+    font-family: azeretMono;
+    src: url('../fonts/AzeretMono-Regular.ttf');
+}
+
+@font-face {
+    font-family: kindestreality;
+    src: url('../fonts/KindestrealityDemo-1GrZe.ttf');
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* header */
+nav {
+    width: 100%;
+    background-color: #495057;
+}
+
+nav .container {
+    display: flex;
+    justify-content: center;
+}
+
+nav .container .logo {
+    margin-left: 70px;
+    flex-basis: 75%;
+}
+
+nav .container .logo h1 {
+    font-family: kindestreality;
+    font-size: 25px;
+    color: #DEE2E6;
+    cursor: default;
+    font-weight: 200;
+}
+
+nav .container .links {
+    flex-basis: 25%;
+    margin-right: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .container .links ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+nav .container .links ul li.link-item {
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+nav .container .links ul li.link-item a {
+    text-decoration: none;  
+    color: #ADB5BD;
+    font-family: azeretMono;
+    transition: color 0.2s ease-in-out;
+}
+
+nav .container .links ul li.link-item a:hover {
+    color: #DEE2E6;
+}
+
+@media (max-width: 908px) {
+    nav .container .links ul li.link-item {
+        width: 100%;
+        margin-right: 70px;  
+    }
+}
