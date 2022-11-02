@@ -1,0 +1,166 @@
+/* backdrop */
+.movie-backdrop {
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.movie-backdrop .backdrop-img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.8;
+}
+
+.backdrop-overlay {
+    position: absolute;
+    background: linear-gradient(to bottom, rgba(255,0,0,0), rgb(233, 236, 239));
+    top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;  
+    z-index: 2;  
+}
+
+/* movie details */
+
+/* poster/director */
+.movie-deatils {
+    display: flex;
+    justify-content: center;
+    font-family: MPLUSRounded1c;
+    margin-top: 40px;
+}
+
+.movie-deatils .poster-director {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%;
+}
+
+.movie-deatils .poster-director .poster  {
+    width: 100%;
+    display: flex;
+}
+
+.movie-deatils .poster-director .poster img {
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.movie-deatils .poster-director .director {
+    text-align: center;
+    width: 100%;
+    color: #343A40;
+    background-color: #89C2D9;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.movie-deatils .poster-director .director h4 {
+
+}
+
+.movie-deatils .poster-director .director #director-name {
+    color: #000;
+    padding-bottom: 30px;
+    margin: auto;
+    margin-top: -20px;
+    line-height: 1.5rem;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+/* main info */
+.movie-deatils .movie-info {
+    padding: 30px;
+    flex-basis: 80%;
+}
+
+.movie-deatils .movie-info .movie-main-info .release-year {
+    font-weight: bold;
+    color: #343A40;
+}
+
+.movie-deatils .movie-info .movie-main-info .movie-name {
+    margin-top: -40px;
+    font-size: 40px;
+    line-height: 2.9rem;
+    font-weight: 700;
+    width: 80%;
+}
+
+.movie-deatils .movie-info .movie-main-info .genre {
+    margin-top: -30px;
+    font-weight: 600;
+    color: #343A40
+}
+
+.movie-deatils .plot {
+    margin-top: 30px;
+    font-size: 19px;
+    width: 90%;
+}
+
+.movie-deatils .plot .overview {
+    margin-top: -10px
+}
+
+/* cast */
+.movie-deatils .movie-cast {
+    margin-top: 50px;
+}
+
+.movie-deatils .movie-cast .movie-cast-title {
+    font-size: 20px;
+    font-weight: 800;
+    border-bottom: 2px solid #343A40;
+    width: 5rem;
+    cursor: default;
+    transition: 0.5s ease-out;
+}
+
+.movie-deatils .movie-cast .movie-cast-title:hover {width: 10rem;}
+
+.movie-deatils .movie-cast .cast-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.movie-deatils .movie-cast .cast-content .movie-cast-box {
+    background-color: purple;
+    flex-basis: 8rem;
+    border-radius: 20px;
+}
+
+.movie-deatils .movie-cast .cast-content .movie-cast-box .cast-actor-img {
+    background-color: blue;
+    display: flex;
+}
+
+.movie-deatils .movie-cast .cast-content .movie-cast-box .cast-actor-img img {
+    width: 100%;
+}
+
+.movie-deatils .movie-cast .cast-content .movie-cast-box .cast-box-info {
+    padding: 10px;
+    font-size: 20px;
+}
+
+@media (max-width: 908px) {
+    .movie-backdrop {
+        width: 100%;
+    }
+
+    .movie-deatils {
+        flex-direction: column;
+    }
+}

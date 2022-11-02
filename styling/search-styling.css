@@ -95,47 +95,30 @@
 }
 
 .search-results .results .search-result-box .main-info {
-    background-color: #CED4DA;
+    background-color: #89C2D9;
     padding: 10px;
-}
-
-.search-results .results .search-result-box .main-info .name {
-    font-size: 17px;
-    line-height: 1.3rem;
-}
-
-.search-results .results .search-result-box .main-info .release-date {
-    font-size: 12px;
-    margin-top: -12px;
-    color: #212529;
-}
-
-.search-results .results .search-result-box .search-result-options {
-    justify-content: flex-start;
-    width: 100%;
-    display: flex;
-}
-
-.search-results .results .search-result-box .search-result-options button {
-    width: 100%;
-    border: 0;
-    color: #CED4DA;
-    padding: 15px 10px 15px 10px;
-    cursor: pointer;
-    transition: 0.2s ease-in-out all;
-}
-
-.search-results .results .search-result-box .search-result-options .watched-btn {
-    background-color: #6C757D;
     border-bottom-left-radius: 20px;
-}
-
-.search-results .results .search-result-box .search-result-options .watchlist-btn {
-    background-color: #495057;
     border-bottom-right-radius: 20px;
 }
 
-.search-results .results .search-result-box .search-result-options .watched-btn:hover,
-.search-results .results .search-result-box .search-result-options .watchlist-btn:hover {
-    background-color: #212529;
+.search-results .results .search-result-box .main-info .name {
+    font-size: 20px;
+    line-height: 1.3rem;
+}
+
+.search-results .results .search-result-box .main-info .name a.movie-page-link {
+    text-decoration: none;
+    color: #014F86;
+    transition: 0.3s all ease-in-out;
+}
+
+.search-results .results .search-result-box .main-info .name a.movie-page-link:hover {
+    color: #012A4A
+}
+
+.search-results .results .search-result-box .main-info .release-date {
+    font-size: 13px;
+    margin-top: -12px;
+    color: #212529;
+    
 }
