@@ -137,7 +137,6 @@
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    background-color: red;
 }
 
 .movie-deatils .movie-cast .cast-content .movie-cast-box .cast-actor-img {
@@ -178,6 +177,96 @@
     padding: 5px
 }
 
+/* movie-options */
+.movie-options {
+    width: 50%;
+    background-color: #89C2D9;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    font-family: MPLUSRounded1c;
+    border-radius: 20px;
+}
+
+.movie-options .log-option {
+    flex-basis: 80%;
+    padding: 10px;
+    display: flex;
+    color: #012A4A;
+}
+
+.movie-options .log-option .rating {
+    flex-basis: 100%;
+    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-options .log-option .rating-stars {
+    cursor: default;
+}
+
+.movie-options .log-option .rating-title {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.movie-options .log-option .rating-stars i {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.movie-options .log-option .rating-result {
+    font-size: 16px;
+}
+
+.movie-options .options-btns {
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.movie-options .options-btns .watched-option,
+.movie-options .options-btns .watchlist-option {
+    width: 100%;
+    height: 50%;
+}
+
+.movie-options .options-btns .watched-option .watched-btn,
+.movie-options .options-btns .watchlist-option .watchlist-btn {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    cursor: pointer;
+    color: #E9ECEF;
+    font-size: 1.2rem;
+    transition: 0.4s all ease-in-out;
+    font-family: MPLUSRounded1c;
+}
+
+.movie-options .options-btns .watched-option .watched-btn {
+    background-color: #61A5C2;
+    border-top-right-radius: 20px;
+}
+
+.movie-options .options-btns .watched-option .watched-btn:hover {
+    background-color: #2A6F97;
+}
+
+.movie-options .options-btns .watchlist-option .watchlist-btn {
+    background-color: #2C7DA0;
+    border-bottom-right-radius: 20px;
+}
+
+.movie-options .options-btns .watchlist-option .watchlist-btn:hover {
+    background-color: #2A6F97;
+}
+
+
 @media (max-width: 908px) {
     .movie-backdrop {
         width: 100%;
@@ -189,5 +278,10 @@
 
     .movie-deatils .movie-cast .cast-content {
         justify-content: center;
+    }
+
+    .movie-options {
+        flex-direction: column;
+        width: 90%;
     }
 }
