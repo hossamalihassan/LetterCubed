@@ -1,0 +1,46 @@
+.watclist-header {
+    margin-top: 4rem;
+    font-size: 1.1rem;
+    font-family: MPLUSRounded1c;
+}
+
+.watchlist-movies {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.watchlist-movies .watchlist-movie-box {
+    flex-basis: 10rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s all ease-in-out;
+}
+
+.watchlist-movies .watchlist-movie-box .watchlist-movie-poster img {
+    width: 100%;
+    display: flex;
+    border-radius: 20px;
+    transition: 0.2s all ease-in-out;
+}
+
+
+.watchlist-movies .watchlist-movie-box .watchlist-movie-title {
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 5px;
+}
+
+.watchlist-movies .watchlist-movie-box .watchlist-movie-title a {
+    text-decoration: none;
+    color: #343A40;
+    transition: 0.2s all ease-in-out;
+}
+
+.watchlist-movies .watchlist-movie-box .watchlist-movie-title a:hover {
+    color: #212529;
+}
+
