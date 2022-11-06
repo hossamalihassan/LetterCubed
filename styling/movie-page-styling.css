@@ -29,9 +29,12 @@
     text-align: center;
     width: 100%;
     color: #343A40;
-    background-color: #89C2D9;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+
+    background: rgba(137, 194, 217, 0.42);
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(5.7px);
 }
 
 

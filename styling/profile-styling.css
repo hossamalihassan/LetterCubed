@@ -1,0 +1,65 @@
+.profile-main-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.profile-main-info .profile-img {
+    display: flex;
+    flex-basis: 10rem;
+}
+
+.profile-main-info .profile-img img {
+    width: 100%;
+    display: flex;
+    border-radius: 50%;
+}
+
+.profile-main-info .profile-name {
+    margin-left: 20px;
+    font-size: 20px;
+    font-family: MPLUSRounded1c;
+}
+
+.profile-main-info .profile-name .profile-full-name {
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.profile-main-info .profile-name .profile-username {
+    color: #343A40;
+    margin-top: -1.7rem
+}
+
+.profile-stats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    gap: 4rem;
+    font-family: MPLUSRounded1c;
+}
+
+.profile-stats .profile-movies-watched-stats,
+.profile-stats .profile-movies-watchlist-stats {
+    flex-basis: 15rem;
+}
+
+.profile-stats .profile-movies-watched-stats .profile-number-of-movies-watched,
+.profile-stats .profile-movies-watchlist-stats .profile-number-of-watchlist-movies {
+    font-size: 2rem;
+    font-weight: 900;
+    border-bottom: 0.1rem dotted #343A40;
+    border-radius: 0.5rem;
+}
+
+.profile-stats .stats-title {
+    margin-top: -1.8rem;
+    color: #343A40;
+}
