@@ -1,3 +1,4 @@
+/* profile main info */
 .profile-main-info {
     display: flex;
     flex-direction: row;
@@ -62,4 +63,44 @@
 .profile-stats .stats-title {
     margin-top: -1.8rem;
     color: #343A40;
+}
+
+/* movies logged */
+.profile-movies-logged {
+    margin-top: 4rem;
+}
+
+.profile-movies-logged .profile-movies-logged-label {
+    font-size: 1.2rem;
+    font-family: MPLUSRounded1c;
+}
+
+.profile-movies-logged .movies-logged {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+.profile-movies-logged .movies-logged .movie-watched-box {
+    width: 10rem;
+}
+
+.profile-movies-logged .movies-logged .movie-watched-box img {
+    width: 100%;
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 0 0 2px #000;
+    transition: 0.2s all ease-in-out;
+}
+
+.profile-movies-logged .movies-logged .movie-watched-box img:hover {
+    box-shadow: 0 0 8px #000;
+}
+
+@media (max-width: 908px) {
+    .profile-movies-logged .movies-logged {
+        justify-content: center;
+    }
 }
