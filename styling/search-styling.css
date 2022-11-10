@@ -58,27 +58,50 @@
     font-family: MPLUSRounded1c;
 }
 
+.search-results .search-title {
+    display: none;
+}
+
 .search-results .search-results-title {
-    font-size: 15px;
+    font-size: 17px;
 }
 
 .search-results .results {
     display: flex; 
-    justify-content: space-evenly;
+    flex-basis: 100%;
     flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
-    gap: 1rem;
+    gap: 2rem;
     flex-grow: 1;
 }
 
 .search-results .results .search-result-box {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    flex-basis: 12rem;
+    justify-content: flex-end;
+    flex-basis: 14rem;
 }
 
 .search-results .results .search-result-box .poster {
+    width: 100%;
+}
+
+.poster-not-found {
+    width: 100%;
+    height: 15rem;
+    background: #012A4A;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    cursor: default;
+}
+
+.poster-not-found {
+    text-align: center;
     width: 100%;
 }
 
@@ -103,7 +126,7 @@
 
 .search-results .results .search-result-box .main-info .name {
     font-size: 20px;
-    line-height: 1.3rem;
+    line-height: 1.5rem;
 }
 
 .search-results .results .search-result-box .main-info .name a.movie-page-link {
@@ -121,4 +144,12 @@
     margin-top: -12px;
     color: #212529;
     
+}
+
+@media (max-width: 908px) {
+
+    .search-results .results .search-result-box {
+        flex-basis: 12rem;
+    }
+
 }
