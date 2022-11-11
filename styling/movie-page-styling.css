@@ -38,7 +38,7 @@
 }
 
 
-.movie-deatils .poster-director .director #director-name {
+.movie-deatils .poster-director .director .director-name {
     color: #000;
     padding-bottom: 30px;
     margin: auto;
@@ -68,13 +68,13 @@
 }
 
 .movie-deatils .movie-info .movie-main-info .genre {
-    margin-top: -30px;
+    margin-top: -20px;
     font-weight: 600;
-    color: #343A40
+    color: #343A40;
 }
 
 .movie-deatils .plot {
-    margin-top: 30px;
+    margin-top: 10px;
     font-size: 19px;
     width: 90%;
 }
