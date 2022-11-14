@@ -71,12 +71,30 @@ function renderMovieData(title, cast, director, poster, year, genres, tagLine, o
 
 function setPosterDirectorSection(poster, director, title){
     let posterTag = (poster !== null) ? 
-                getPosterTag(poster_path=poster, found=true) :
-                getPosterTag(poster_path="", found=false, title=title)
+                    getMoviePoster(poster_path=poster, found=true) :
+                    getMoviePoster(poster_path="", found=false, title=title) 
 
-    setElementContent(document.querySelector(".poster"), posterTag)
+    setElementContent(document.querySelector(".poster-tag"), posterTag)
 
+    setElementContent(document.querySelector(".director-title"), "<h4>Directed by</h4>")
     setElementContent(document.querySelector(".director-name"), director)
+}
+
+function getMoviePoster(poster_path, found, title){
+    let posterTag = ""
+    if(!found){
+        posterTag = '<div class ="poster poster-not-found">' +
+                        '<p>' + title + '</p>' +
+                    '</div>'
+    } else {
+        let w500_poster = "https://image.tmdb.org/t/p/w500" + poster_path;
+        let original_poster = "https://image.tmdb.org/t/p/original" + poster_path;
+        posterTag = '<picture class="poster">' +
+                        '<source srcset="'+ original_poster +'">' +
+                        '<img srcset="'+ w500_poster +'" class="poster-img">' +
+                    '</picture>'
+    }
+    return posterTag
 }
 
 function setMovieMainInfoSection(year, title, genres, tagLine, overview){
@@ -88,8 +106,11 @@ function setMovieMainInfoSection(year, title, genres, tagLine, overview){
 }
 
 function setCastSection(cast) {
-    let cast_section = document.querySelector(".cast-content")
+    if(cast.length === 0) return
+    let cast_title = document.querySelector(".cast-title")
+    cast_title.innerHTML += '<p class="movie-cast-title">Cast</p>'
 
+    let cast_section = document.querySelector(".cast-content")
     cast_section_content = ""
 
     cast.forEach(credit => (
@@ -123,7 +144,7 @@ function getCastPhotoTag(photo_path, name){
     } 
     
     else {
-        let photo = "https://image.tmdb.org/t/p/w500" + photo_path;
+        let photo = "https://image.tmdb.org/t/p/original" + photo_path;
         photo_tag = '<div class="cast-actor-img">' +
                         '<img src="'+ photo  +'">' +
                     '</div>'

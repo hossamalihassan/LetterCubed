@@ -110,3 +110,22 @@ function formatResultBox(result){
 
     return movie
 }
+
+
+// get posterTag and check if we don't have it
+function getPosterTag(poster_path, found, title){
+    let posterTag = ""
+    if(!found){
+        posterTag = '<div class ="poster poster-not-found">' +
+                        '<p>' + title + '</p>' +
+                    '</div>'
+    } else {
+      
+        let poster = "https://image.tmdb.org/t/p/w500" + poster_path;
+        posterTag = '<div class="poster">' +
+                        '<img src="'+ poster +'" class="poster-img">' +
+                    '</div>' 
+    }
+
+    return posterTag
+}

@@ -84,6 +84,11 @@ nav .clapboard {
     align-items: center;
 }
 
+nav .clapboard button {
+    background-color: transparent;
+    border: 0;
+}
+
 nav .clapboard i {
     cursor: pointer;
     color: #F8F9FA;
@@ -99,7 +104,7 @@ nav .clapboard i:hover {
 .poster-not-found {
     display: flex;
     width: 100%;
-    height: 16rem;
+    height: 100%;
     background: #012A4A;
     color: #E9ECEF;
     align-items: center;
@@ -132,23 +137,31 @@ nav .clapboard i:hover {
     margin: auto;
 }
 
-@media (max-width: 908px) {
+@media (max-width: 980px) {
     nav .container {
         flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
     }
 
     nav .links {
         display: none;
         flex-basis: 100%;
         margin-left: 70px;
+        margin-right: 70px;
         padding: 15px;
         margin-bottom: 15px;
     }
 
-    nav .links ul {
-        gap: 0.7rem;
+    nav .links[data-visible="true"] {
+        display: flex;
     }
 
+    nav .links ul {
+        gap: 1rem;
+    }
+    
     nav .logo {
         display: flex;
         flex-basis: 100%;
@@ -165,6 +178,7 @@ nav .clapboard i:hover {
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
+        font-size: 18px;
     }
 
     nav .container .links ul li.link-item {

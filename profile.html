@@ -21,11 +21,13 @@
                     <h1>LetterCubed</h1>
 
                     <div class="clapboard">
-                        <i class="fa-solid fa-clapperboard icon" onclick="toggleNavBar()"></i>
+                        <button aria-expanded="false" aria-controls="links"  onclick="toggleNavBar()">
+                            <i class="fa-solid fa-clapperboard icon"></i>
+                        </button>
                     </div>
                 </div>
 
-                <div class="links">
+                <div class="links" id="links" data-visible="false">
                     <ul class="links-list">
                         <li class="link-item" id="search-link">
                             <a href="search.html">Search</a>

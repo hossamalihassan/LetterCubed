@@ -22,11 +22,13 @@
                     <h1>LetterCubed</h1>
                     
                     <div class="clapboard">
-                        <i class="fa-solid fa-clapperboard icon" onclick="toggleNavBar()"></i>
+                        <button aria-expanded="false" aria-controls="links"  onclick="toggleNavBar()">
+                            <i class="fa-solid fa-clapperboard icon"></i>
+                        </button>
                     </div>
                 </div>
 
-                <div class="links">
+                <div class="links" id="links" data-visible="false">
                     <ul class="links-list">
                         <li class="link-item" id="search-link">
                             <a href="search.html">Search</a>
@@ -43,7 +45,6 @@
             </div>
         </nav>
 
-
         <!-- main container -->
         <div class="container">
 
@@ -51,12 +52,11 @@
             <div class="movie-deatils">
 
                 <div class="poster-director">
-                    <div class="poster">
-                        
+                    <div class="poster-tag">
                     </div>
 
                     <div class="director">
-                        <h4>Directed by</h4>
+                        <div class="director-title"></div>
                         <h2 class="director-name"></h4>
                     </div>
                     
@@ -87,7 +87,9 @@
                     </div>
 
                     <div class="movie-cast">
-                        <p class="movie-cast-title">Cast</p>
+                        <div class="cast-title">
+                            
+                        </div>
 
                         <div class="cast-content">
                             
