@@ -1,9 +1,7 @@
-const API_KEY = "549813482a5ad2f96aa6a8ec7758a4b7"
-
 let results_container = document.querySelector(".results")
 
 window.addEventListener("DOMContentLoaded", function() {
-    let searchTag = getJsonFromUrl().search
+    const searchTag = getJsonFromUrl().search
     if(searchTag === "" || searchTag === undefined){
         getPopularMovies()
     } else {
@@ -37,7 +35,7 @@ function adjustTitle(search_tag){
     return title
 }
 
-/* get search results/popular movies from API */
+// get search results/popular movies from API
 async function getDataFromAPI(API_call){
     let returnedData = await fetch(API_call).then(response => response.json())
 
@@ -45,19 +43,19 @@ async function getDataFromAPI(API_call){
 
     console.log(returnedData)
 
-    /* sort the data we got and render it */
+    // sort the data we got and render it 
     let sortedResults = sortResultsByPopularity(returnedData.results)
     await renderResults(sortedResults) 
 }
 
 function getPopularMovies(){
-    let API_call = 'https://api.themoviedb.org/3/movie/popular?api_key='+ API_KEY +'&language=en-US&page=1'
-    getDataFromAPI(API_call)
+    let popular_API_call = 'https://api.themoviedb.org/3/movie/popular?api_key='+ API_KEY +'&language=en-US&page=1'
+    getDataFromAPI(popular_API_call)
 }
 
 function getSearchResults(search_tag){
-    let API_call = 'https://api.themoviedb.org/3/search/movie?api_key='+ API_KEY +'&language=en-US&query=' + search_tag
-    getDataFromAPI(API_call)
+    let search_API_call = 'https://api.themoviedb.org/3/search/movie?api_key='+ API_KEY +'&language=en-US&query=' + search_tag
+    getDataFromAPI(search_API_call)
 }
 
 function checkIfResultArrIsEmpty(results){
@@ -67,7 +65,7 @@ function checkIfResultArrIsEmpty(results){
     }
 }
 
-/* sort results */
+// sort results 
 function sortResultsByPopularity(search_results) {
     let results_copy = search_results.slice(0)
     results_copy.sort(function (a,b){
@@ -79,7 +77,7 @@ function sortResultsByPopularity(search_results) {
     return results_copy
 }
 
-/* render results we got */
+// render results we got
 async function renderResults(results) {
     let results_content = ''
 
@@ -105,7 +103,7 @@ function formatResultBox(result){
     let movie = '<div class="search-result-box">' +
                     posterTag +
                     '<div class="main-info">' +
-                        '<h2 class="name"><a href="movie.html" class="movie-page-link">'+ title +'</a></h2>' +
+                        '<h2 class="name"><a href="movie.html?id='+ id +'" class="movie-page-link">'+ title +'</a></h2>' +
                         '<h4  class="release-date">'+ release_date +'</h4>' +
                     '</div>' +
                 '</div>'
@@ -113,6 +111,8 @@ function formatResultBox(result){
     return movie
 }
 
+
+// get posterTag and check if we don't have it
 function getPosterTag(poster_path, found, title){
     let posterTag = ""
     if(!found){
@@ -120,6 +120,7 @@ function getPosterTag(poster_path, found, title){
                         '<p>' + title + '</p>' +
                     '</div>'
     } else {
+      
         let poster = "https://image.tmdb.org/t/p/w500" + poster_path;
         posterTag = '<div class="poster">' +
                         '<img src="'+ poster +'" class="poster-img">' +
