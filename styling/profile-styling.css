@@ -1,38 +1,53 @@
 /* profile main info */
+.profile-container {
+    display: flex;
+    margin-top: 30px;
+}
+
 .profile-main-info {
+    background-color: #D9D9D9;
+    padding: 10px;
+    flex-basis: 20%;
+    border-radius: 20px;
+    height: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.profile-main-info .profile-username {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 3rem;
     flex-wrap: wrap;
+    display: flex;
+    gap: 1rem;
 }
 
-.profile-main-info .profile-img {
+.profile-main-info .profile-username .profile-img {
     display: flex;
     flex-basis: 10rem;
 }
 
-.profile-main-info .profile-img img {
+.profile-main-info .profile-username .profile-img img {
     width: 100%;
     display: flex;
     border-radius: 50%;
 }
 
-.profile-main-info .profile-name {
-    margin-left: 20px;
+.profile-main-info .profile-username .profile-name {
     font-size: 20px;
     font-family: MPLUSRounded1c;
 }
 
-.profile-main-info .profile-name .profile-full-name {
+.profile-main-info .profile-username .profile-name .profile-full-name {
     font-size: 1.8rem;
     font-weight: 900;
 }
 
-.profile-main-info .profile-name .profile-username {
+.profile-main-info .profile-username .profile-name .profile-username {
     color: #343A40;
-    margin-top: -1.7rem
+    margin-top: -1.9rem
 }
 
 .profile-stats {
@@ -41,33 +56,30 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: 1.5rem;
-    font-size: 1.2rem;
-    gap: 4rem;
     font-family: MPLUSRounded1c;
 }
 
 .profile-stats .profile-movies-watched-stats,
 .profile-stats .profile-movies-watchlist-stats {
-    flex-basis: 15rem;
+    flex-basis: 50%;
 }
 
 .profile-stats .profile-movies-watched-stats .profile-number-of-movies-watched,
 .profile-stats .profile-movies-watchlist-stats .profile-number-of-watchlist-movies {
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 900;
-    border-bottom: 0.1rem dotted #343A40;
-    border-radius: 0.5rem;
 }
 
 .profile-stats .stats-title {
-    margin-top: -1.8rem;
     color: #343A40;
+    margin-top: -1.4rem;
+    font-size: 1.2rem;
+
 }
 
 /* movies logged */
 .profile-movies-logged {
-    margin-top: 4rem;
+    padding-left: 30px
 }
 
 .profile-movies-logged .profile-movies-logged-label {
@@ -102,5 +114,9 @@
 @media (max-width: 908px) {
     .profile-movies-logged .movies-logged {
         justify-content: center;
+    }
+
+    .profile-container {
+        flex-direction: column;
     }
 }
