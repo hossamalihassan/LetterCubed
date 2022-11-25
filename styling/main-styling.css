@@ -172,6 +172,7 @@ nav .clapboard i:hover {
 
     nav .clapboard {
         display: flex;
+        flex-basis: 3rem;
     }
 
     nav .container .links ul {
