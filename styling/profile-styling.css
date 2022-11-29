@@ -97,6 +97,8 @@
 
 .profile-movies-logged .movies-logged .movie-watched-box {
     width: 10rem;
+    display: flex;
+    transition: 0.2s all ease-in-out;
 }
 
 .profile-movies-logged .movies-logged .movie-watched-box img {
@@ -104,11 +106,6 @@
     display: flex;
     border-radius: 20px;
     box-shadow: 0 0 2px #000;
-    transition: 0.2s all ease-in-out;
-}
-
-.profile-movies-logged .movies-logged .movie-watched-box img:hover {
-    box-shadow: 0 0 8px #000;
 }
 
 @media (max-width: 908px) {
