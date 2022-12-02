@@ -41,7 +41,7 @@ nav .container .logo h1 {
     font-size: 25px;
     color: #DEE2E6;
     cursor: default;
-    font-weight: 200;
+    font-family: azeretMono;
 }
 
 nav .container .links {
@@ -97,7 +97,7 @@ nav .clapboard i {
 }
 
 nav .clapboard i:hover {
-    color: #CED4DA
+    color: #CED4DA;
 }
 
 /* for when we don't have poster img */
