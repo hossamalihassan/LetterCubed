@@ -33,7 +33,7 @@
                             <a href="watchlist.html">Watchlist</a>
                         </li>
                         <li class="link-item" id="profile-link">
-                            <a href="profile.html">Profile</a>
+                            <a href="profile.php">Profile</a>
                         </li>
                     </ul>
                 </div>

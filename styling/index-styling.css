@@ -69,7 +69,7 @@
     justify-content: center;
 }
 
-.option-submit button {
+.option-submit .submit {
     width: 100%;
     outline: 0;
     border: 0;
@@ -83,7 +83,7 @@
     transition: 300ms all ease-in-out;
 }
 
-.option-submit button:hover {
+.option-submit .submit:hover {
     background-color: #014F86;
 }
 
