@@ -1,3 +1,9 @@
+<?php 
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,6 +19,8 @@
         <title>LetterCubed - profile</title>
     </head>
     <body>
+
+        <a href="inc/logout_script.php">Sign out</a>
 
         <!-- navbar -->
         <nav>

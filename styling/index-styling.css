@@ -1,0 +1,96 @@
+.nav {
+    display: flex;
+    justify-content: center;
+    font-family: kindestreality;
+    font-size: 1.3rem;
+    font-weight: 200;
+    border-bottom: 1px solid #000;
+    cursor: default;    
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+.options {
+    display: flex;
+    gap: 5rem;
+}
+
+.option-box {
+    padding: 2rem;
+    border-radius: 20px;
+    width: 25rem;
+    font-family: MPLUSRounded1c;
+    font-weight: 600;
+}
+
+.option-box .option-title {
+    padding-bottom: 5px;
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #000;
+    width: 8rem;
+}
+
+.option-box .option-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.option-form .option-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.option-form .option-input {
+    border: 0;
+    padding: 0.7rem;
+    padding-left: 1rem;
+    margin-top: 0.4rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    background-color: #fff;
+    outline: 0;
+    transition: 200ms all ease-in-out;
+}
+
+.option-form .option-input:focus {
+    background-color: #A9D6E5;
+}
+
+.option-submit {
+    display: flex;
+    justify-content: center;
+}
+
+.option-submit .submit {
+    width: 100%;
+    outline: 0;
+    border: 0;
+    padding: 0.7rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    border-radius: 20px;
+    margin-top: 1rem;
+    background-color: #468FAF;
+    color: #fff;
+    transition: 300ms all ease-in-out;
+}
+
+.option-submit .submit:hover {
+    background-color: #014F86;
+}
+
+@media(max-width: 1100px) {
+    .options {
+        flex-direction: column;
+        margin-bottom: 3rem;
+        gap: 1rem
+    }
+}
