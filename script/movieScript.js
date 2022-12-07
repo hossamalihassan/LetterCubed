@@ -27,36 +27,17 @@ function removeMovie(cond) {
 function sendMovieDataToPHPFile(movie, cond, file_name) {
     var url = '/lettercubed/inc/' + file_name + '.php?id=' + movie.id + '&title=' + movie.title + '&poster_path=' + movie.poster_path + '&rating=' + getRating() + '&cond=' + cond
     var request = new XMLHttpRequest()
+    request.onreadystatechange = function() {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            window.location.reload();
+        }
+    }
     request.open("GET", url, true)
     request.send()
 }
 
 function getRating() {
     return document.querySelector(".rating-result").innerHTML.substring(0,1)
-}
-
-function changeAddButtonText(cond){
-    if(cond == "watched"){
-        let watchedBtn = document.querySelector(".watched-btn")
-        watchedBtn.innerHTML = "Watched"
-        watchedBtn.onclick = "removeMovie('watched')"
-    } else if(cond == "watchlist"){
-        let watchlistBtn = document.querySelector(".watchlist-btn")
-        watchlistBtn.innerHTML = "Added To Watchlist"
-        watchlistBtn.onclick = "removeMovie('watchlist')"
-    }
-}
-
-function changeRemoveButtonText(cond){
-    if(cond == "watched"){
-        let watchedBtn = document.querySelector(".watched-btn")
-        watchedBtn.innerHTML = "Log"
-        watchedBtn.onclick = "addMovie('watched')"
-    } else if(cond == "watchlist"){
-        let watchlistBtn = document.querySelector(".watchlist-btn")
-        watchlistBtn.innerHTML = "Add to watchlist"
-        watchlistBtn.onclick = "addMovie('watchlist')"
-    }
 }
 
 // format data before displaying it

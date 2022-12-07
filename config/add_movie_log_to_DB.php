@@ -24,7 +24,7 @@
         $addMovie = "INSERT INTO movies_logs (log_user_id, log_movie_id, log_movie_name, log_movie_poster, log_movie_rating) VALUES ('$user_id', '$movie_id', '$movie_name', '$movie_poster', '$movie_rating')";
     
         if(mysqli_query($conn, $addMovie)){
-            header("Refresh:0");
+            echo "added movie log";
         } else {
             echo mysqli_error($conn);
         }

@@ -19,7 +19,7 @@
         }
 
         if(mysqli_query($conn, $remove_movie_log_stat)){
-            header("Refresh:0");
+            echo "removed log";
         } else {
             echo mysqli_error($conn);
         }
