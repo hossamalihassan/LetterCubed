@@ -1,19 +1,65 @@
 window.addEventListener("DOMContentLoaded", function() {
     const movie_id = getJsonFromUrl().id
     if(movie_id === "" || movie_id === undefined){
-        window.location = "search.html"
+        window.location = "search.php"
     }
     getMovieData(movie_id)
 });
 
 // get and format the data we got 
+let returnedMovieData;
 async function getMovieData(movie_id){
     let movie_API_call = 'https://api.themoviedb.org/3/movie/' + movie_id +'?api_key='+ API_KEY +'&append_to_response=credits'
-    let returnedMovieData = await fetch(movie_API_call).then(response => response.json())
+    returnedMovieData = await fetch(movie_API_call).then(response => response.json())
 
     formatMovieData(returnedMovieData)
 }
 
+// add and remove movie from database
+function addMovie(cond) {
+    sendMovieDataToPHPFile(returnedMovieData, cond, "movie_log_script")
+}
+
+function removeMovie(cond) {
+    sendMovieDataToPHPFile(returnedMovieData, cond, "movie_remove_log_script")
+}
+
+function sendMovieDataToPHPFile(movie, cond, file_name) {
+    var url = '/lettercubed/inc/' + file_name + '.php?id=' + movie.id + '&title=' + movie.title + '&poster_path=' + movie.poster_path + '&rating=' + getRating() + '&cond=' + cond
+    var request = new XMLHttpRequest()
+    request.open("GET", url, true)
+    request.send()
+}
+
+function getRating() {
+    return document.querySelector(".rating-result").innerHTML.substring(0,1)
+}
+
+function changeAddButtonText(cond){
+    if(cond == "watched"){
+        let watchedBtn = document.querySelector(".watched-btn")
+        watchedBtn.innerHTML = "Watched"
+        watchedBtn.onclick = "removeMovie('watched')"
+    } else if(cond == "watchlist"){
+        let watchlistBtn = document.querySelector(".watchlist-btn")
+        watchlistBtn.innerHTML = "Added To Watchlist"
+        watchlistBtn.onclick = "removeMovie('watchlist')"
+    }
+}
+
+function changeRemoveButtonText(cond){
+    if(cond == "watched"){
+        let watchedBtn = document.querySelector(".watched-btn")
+        watchedBtn.innerHTML = "Log"
+        watchedBtn.onclick = "addMovie('watched')"
+    } else if(cond == "watchlist"){
+        let watchlistBtn = document.querySelector(".watchlist-btn")
+        watchlistBtn.innerHTML = "Add to watchlist"
+        watchlistBtn.onclick = "addMovie('watchlist')"
+    }
+}
+
+// format data before displaying it
 function formatMovieData(returnedMovieData){
     let title = returnedMovieData.title
     let cast = getAtLeastTenCastMembers(returnedMovieData.credits.cast)
@@ -23,7 +69,7 @@ function formatMovieData(returnedMovieData){
     let genres = getGenres(returnedMovieData.genres)
     let tagLine = returnedMovieData.tagline
     let overview = returnedMovieData.overview
-    
+
     renderMovieData(title, cast, director, poster, year, genres, tagLine, overview)
 }
 

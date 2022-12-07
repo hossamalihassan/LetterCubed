@@ -8,8 +8,8 @@
         $signin_password = filter_input(INPUT_POST, "signin_password", FILTER_SANITIZE_SPECIAL_CHARS);
     
         // signin validation
-        include('config/search_for_user_DB.php');
-        $sign_in_check = get_user_from_db("user_email", $signin_email, $conn);
+        include('config/search_in_DB.php');
+        $sign_in_check = get_user_from_db("users", "user_email", $signin_email, $conn);
 
         // signin is done
         if(!empty($sign_in_check)){

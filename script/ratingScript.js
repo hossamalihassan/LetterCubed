@@ -6,8 +6,6 @@ function executeRating(stars, resultSection){
     const starClassInactive = "far fa-star rating-star"
     const starsLen = stars.length
 
-    console.log(starsLen)
-
     stars.map((star) => {
         star.onclick = () => {
             let i = stars.indexOf(star)
@@ -28,6 +26,5 @@ function executeRating(stars, resultSection){
 function updateRating(resultSection, newRes){
     resultSection.innerHTML = newRes + " out of 5"
 }
-
 
 executeRating(ratingStars, resultSection)

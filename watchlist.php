@@ -13,32 +13,8 @@
         <title>LetterCubed - Watchlist</title>
     </head>
     <body>
-        <!-- header -->
-        <nav>
-            <div class="container">
-                <div class="logo">
-                    <h1>LetterCubed</h1>
-                    
-                    <div class="clapboard">
-                        <button aria-expanded="false" aria-controls="links"  onclick="toggleNavBar()">
-                            <i class="fa-solid fa-clapperboard icon"></i>
-                        </button>
-                    </div>
-                </div>
 
-                <div class="links" id="links" data-visible="false">
-                    <ul class="links-list">
-                        <li class="link-item" id="watchlist-link">
-                            <a href="search.html">Search</a>
-                        </li>
-                        <li class="link-item" id="profile-link">
-                            <a href="profile.html">Profile</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </nav>
+        <?php include("inc/header.php") ?>
 
         <!-- main container -->
         <div class="container">
@@ -187,14 +163,7 @@
 
         </div>
 
-        <footer class="footer">
-            <h1 class="logo one">LetterCubed</h1>
-            <h1 class="logo two">LetterCubed</h1>
-            <h1 class="logo three">LetterCubed</h1>
-            <h1 class="logo four">LetterCubed</h1>
-            <h1 class="logo five">LetterCubed</h1>
-            <h1 class="logo six">LetterCubed</h1>
-        </footer>
+        <?php include("inc/footer.php") ?>
 
 
         <script src="script/navbarScript.js"></script>

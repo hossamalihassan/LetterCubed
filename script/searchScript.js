@@ -103,7 +103,7 @@ function formatResultBox(result){
     let movie = '<div class="search-result-box">' +
                     posterTag +
                     '<div class="main-info">' +
-                        '<h2 class="name"><a href="movie.html?id='+ id +'" class="movie-page-link">'+ title +'</a></h2>' +
+                        '<h2 class="name"><a href="movie.php?id='+ id +'" class="movie-page-link">'+ title +'</a></h2>' +
                         '<h4  class="release-date">'+ release_date +'</h4>' +
                     '</div>' +
                 '</div>'

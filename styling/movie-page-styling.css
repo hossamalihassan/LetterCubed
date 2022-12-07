@@ -6,12 +6,17 @@
     margin-top: 40px;
 }
 
-.movie-deatils .poster-director {
-    flex-basis: 25%;
+.poster-options {
+    flex-basis: 20%;
     display: flex;
     flex-direction: column;
+}
+
+.movie-deatils .poster-director {
+    display: flex;
+    flex-basis: 1rem;
+    flex-direction: column;
     background: rgba(137, 194, 217, 0.42);
-    height: 100%;
     border-radius: 20px;
 }
 
@@ -55,6 +60,7 @@
 .movie-deatils .movie-info {
     padding: 30px;
     flex-basis: 80%;
+    padding-left: 5rem;
 }
 
 .movie-deatils .movie-info .movie-main-info .release-year {
@@ -159,17 +165,17 @@
 
 /* movie-options */
 .movie-options {
-    width: 50%;
-    background-color: #89C2D9;
-    margin: auto;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    background-color: #89C2D9;
+    flex-direction: column;
     font-family: MPLUSRounded1c;
     border-radius: 20px;
+    margin-top: 1rem;
 }
 
 .movie-options .log-option {
-    flex-basis: 80%;
+    flex-basis: 100%;
     padding: 10px;
     display: flex;
     color: #012A4A;
@@ -192,11 +198,16 @@
 .movie-options .log-option .rating-title {
     font-size: 19px;
     font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 .movie-options .log-option .rating-stars i {
-    font-size: 30px;
+    font-size: 1.6rem;
     cursor: pointer;
+}
+
+.non-clickable {
+    cursor: default !important;
 }
 
 .movie-options .log-option .rating-result {
@@ -226,31 +237,28 @@
     font-size: 1.2rem;
     transition: 0.4s all ease-in-out;
     font-family: MPLUSRounded1c;
-    padding: 7px
+    padding: 0.7rem;
 }
 
 .movie-options .options-btns .watched-option .watched-btn {
     background-color: #61A5C2;
-    border-top-right-radius: 20px;
-}
-
-.movie-options .options-btns .watched-option .watched-btn:hover {
-    background-color: #2A6F97;
 }
 
 .movie-options .options-btns .watchlist-option .watchlist-btn {
     background-color: #2C7DA0;
     border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
+.movie-options .options-btns .watched-option .watched-btn:hover,
 .movie-options .options-btns .watchlist-option .watchlist-btn:hover {
-    background-color: #2A6F97;
+    background-color: #094161;
 }
 
 
 @media (max-width: 908px) {
-    .movie-backdrop {
-        width: 100%;
+    .poster-options {
+        width: 100%
     }
 
     .movie-deatils {
@@ -263,14 +271,5 @@
 
     .movie-options {
         flex-direction: column;
-        width: 90%;
-    }
-
-    .movie-options .options-btns .watched-option .watched-btn {
-        border-top-right-radius: 0px;
-    }
-
-    .movie-options .options-btns .watchlist-option .watchlist-btn {
-        border-bottom-left-radius: 20px;
     }
 }

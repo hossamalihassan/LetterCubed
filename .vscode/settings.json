@@ -1,0 +1,30 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3307,
+            "driver": "MySQL",
+            "name": "lettercubed_conn",
+            "database": "lettercubed",
+            "username": "root",
+            "password": "hos3li123"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3307,
+            "driver": "MySQL",
+            "database": "lettercubed",
+            "username": "hossam",
+            "password": "hos3li123",
+            "name": "lettercubed_conn"
+        }
+    ]
+}
