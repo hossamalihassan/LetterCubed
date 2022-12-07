@@ -3,7 +3,6 @@
     $movie_id = $_GET["id"];
     include("inc/movie_check_watched_watchlist.php");
 
-
 ?>
 
 <!DOCTYPE html>
@@ -46,16 +45,28 @@
                         <div class="log-option">
                             <div class="rating">
                                 <div class="rating-title">Rating</div>
-
                                 <div class="rating-stars">
-                                    <i class="far fa-star rating-star"></i>
-                                    <i class="far fa-star rating-star"></i>
-                                    <i class="far fa-star rating-star"></i>
-                                    <i class="far fa-star rating-star"></i>
-                                    <i class="far fa-star rating-star"></i>
+                                    <?php
+                                        if($movie_rating > 0){
+                                            for($i=0; $i < $movie_rating; $i++){
+                                                echo '<i class="fas fa-star rating-star non-clickable"></i>';
+                                            }
+                                            for($i=$movie_rating; $i < 5; $i++){
+                                                echo '<i class="far fa-star rating-star non-clickable"></i>';
+                                            }
+                                        } 
+                                        
+                                        else {
+                                            for($i=0; $i < 5; $i++){
+                                                echo '<i class="far fa-star rating-star"></i>';
+                                            }
+                                        }
+                                    ?>
                                 </div>
 
-                                <p class="rating-result">0 out of 5</p>
+                                <p class="rating-result">
+                                    <?php echo $movie_rating ?> out of 5
+                                </p>
                             </div>
 
                         </div>
@@ -124,9 +135,14 @@
 
         <?php include("inc/footer.php") ?>
 
+        <?php
+            // to make it clickable only if the move isnt logged
+            if($watched_check == false){
+                echo '<script src="script/ratingScript.js"></script>';
+            }
+        ?>
         <script src="script/mainScript.js"></script>
         <script src="script/movieScript.js"></script>
-        <script src="script/ratingScript.js"></script>
         <script src="script/navbarScript.js"></script>
     </body>
 </html>

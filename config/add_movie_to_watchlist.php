@@ -10,7 +10,7 @@
         }
     
         if(isset($_GET["title"])){
-            $watchlist_movie_name = $_GET["cond"];  
+            $watchlist_movie_name = $_GET["title"];  
         }
     
         if(isset($_GET["poster_path"])){
@@ -20,7 +20,7 @@
         $addMovieToWatchlist = "INSERT INTO watchlist_logs (watchlist_log_user_id, watchlist_log_movie_id, watchlist_log_movie_name, watchlist_log_movie_poster) VALUES ('$user_id', '$watchlist_movie_id', '$watchlist_movie_name', '$watchlist_movie_poster')";
     
         if(mysqli_query($conn, $addMovieToWatchlist)){
-            echo "done";
+            header("Refresh:0");
         } else {
             echo mysqli_error($conn);
         }
