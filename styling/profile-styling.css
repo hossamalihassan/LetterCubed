@@ -36,12 +36,11 @@
 }
 
 .profile-main-info .profile-username .profile-name {
-    font-size: 20px;
     font-family: MPLUSRounded1c;
 }
 
 .profile-main-info .profile-username .profile-name .profile-full-name {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: 900;
 }
 
@@ -72,9 +71,12 @@
 
 .profile-stats .stats-title {
     color: #343A40;
+    font-size: 1rem;
+    font-weight: 700;
+    width: 5rem;
+    text-align: center;
+    margin: auto;
     margin-top: -1.4rem;
-    font-size: 1.2rem;
-
 }
 
 /* movies logged */
@@ -108,7 +110,7 @@
     box-shadow: 0 0 2px #000;
 }
 
-@media (max-width: 908px) {
+@media (max-width: 808px) {
     .profile-movies-logged .movies-logged {
         justify-content: center;
     }

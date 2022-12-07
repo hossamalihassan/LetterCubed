@@ -1,17 +1,40 @@
 window.addEventListener("DOMContentLoaded", function() {
     const movie_id = getJsonFromUrl().id
     if(movie_id === "" || movie_id === undefined){
-        window.location = "search.html"
+        window.location = "search.php"
     }
     getMovieData(movie_id)
 });
 
 // get and format the data we got 
+let returnedMovieData;
 async function getMovieData(movie_id){
     let movie_API_call = 'https://api.themoviedb.org/3/movie/' + movie_id +'?api_key='+ API_KEY +'&append_to_response=credits'
-    let returnedMovieData = await fetch(movie_API_call).then(response => response.json())
+    returnedMovieData = await fetch(movie_API_call).then(response => response.json())
 
     formatMovieData(returnedMovieData)
+}
+
+function addMovie(cond) {
+    sendMovieDataToLog(returnedMovieData, cond)
+}
+
+function removeMovie(cond) {
+    sendMovieDataToRemoveLog(returnedMovieData, cond)
+}
+
+function sendMovieDataToLog(movie, cond) {
+    var url = '/lettercubed/inc/movie_log_script.php?id=' + movie.id + '&title=' + movie.title + '&poster_path=' + movie.poster_path + '&cond=' + cond
+    var request = new XMLHttpRequest()
+    request.open("GET", url, true)
+    request.send()
+} 
+
+function sendMovieDataToRemoveLog(movie, cond) {
+    var url = '/lettercubed/inc/movie_log_script.php?id=' + movie.id + '&title=' + movie.title + '&poster_path=' + movie.poster_path + '&cond=' + cond
+    var request = new XMLHttpRequest()
+    request.open("GET", url, true)
+    request.send()
 }
 
 function formatMovieData(returnedMovieData){
@@ -23,7 +46,7 @@ function formatMovieData(returnedMovieData){
     let genres = getGenres(returnedMovieData.genres)
     let tagLine = returnedMovieData.tagline
     let overview = returnedMovieData.overview
-    
+
     renderMovieData(title, cast, director, poster, year, genres, tagLine, overview)
 }
 

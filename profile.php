@@ -1,6 +1,7 @@
 <?php 
 
-
+    session_start();
+    include('inc/profile_script.php');
 
 ?>
 
@@ -16,38 +17,11 @@
         <link rel="stylesheet" href="styling/main-styling.css">
         <link rel="stylesheet" href="styling/profile-styling.css">
 
-        <title>LetterCubed - profile</title>
+        <title>@<?php echo $user["user_username"] ?> - LetterCubed</title>
     </head>
     <body>
 
-        <a href="inc/logout_script.php">Sign out</a>
-
-        <!-- navbar -->
-        <nav>
-            <div class="container">
-                <div class="logo">
-                    <h1>LetterCubed</h1>
-
-                    <div class="clapboard">
-                        <button aria-expanded="false" aria-controls="links"  onclick="toggleNavBar()">
-                            <i class="fa-solid fa-clapperboard icon"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="links" id="links" data-visible="false">
-                    <ul class="links-list">
-                        <li class="link-item" id="search-link">
-                            <a href="search.html">Search</a>
-                        </li>
-                        <li class="link-item" id="watchlist-link">
-                            <a href="watchlist.html">Watchlist</a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </nav>
+        <?php include("inc/header.php") ?>
 
         <!-- main container -->
         <div class="container">
@@ -56,22 +30,30 @@
                 <section class="profile-main-info">
                     <div class="profile-username">
                         <div class="profile-img">
-                            <img src="img/photo_2022-04-25_20-25-21.jpg">
+                            <img src="img/profile-img.png">
                         </div>
                         <div class="profile-name">
-                            <p class="profile-full-name">Hossam Ali</p>
-                            <p class="profile-username">@hossamali</p>
+                            <p class="profile-full-name">
+                                <?php echo $user["user_name"] ?>
+                            </p>
+                            <p class="profile-username">
+                                @<?php echo $user["user_username"] ?>
+                            </p>
                         </div>
                     </div>
 
                     <div class="profile-stats">
                         <div class="profile-movies-watched-stats">
-                            <p class="profile-number-of-movies-watched">5</p>
+                            <p class="profile-number-of-movies-watched">
+                                <?php echo $user["number_of_movies_watched"] ?>
+                            </p>
                             <p class="stats-title">Movies watched</p>
                         </div>
         
                         <div class="profile-movies-watchlist-stats">
-                            <p class="profile-number-of-watchlist-movies">14</p>
+                            <p class="profile-number-of-watchlist-movies">
+                                <?php echo $user["number_of_watchlist_movies"] ?>
+                            </p>
                             <p class="stats-title">Movies in watchlist</p>
                         </div>
         
@@ -113,14 +95,7 @@
 
         </div>
 
-        <footer class="footer">
-            <h1 class="logo one">LetterCubed</h1>
-            <h1 class="logo two">LetterCubed</h1>
-            <h1 class="logo three">LetterCubed</h1>
-            <h1 class="logo four">LetterCubed</h1>
-            <h1 class="logo five">LetterCubed</h1>
-            <h1 class="logo six">LetterCubed</h1>
-        </footer>
+        <?php include("inc/footer.php") ?>
 
 
 

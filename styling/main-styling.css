@@ -44,7 +44,8 @@ nav .container .logo h1 {
 }
 
 nav .container .links {
-    flex-basis: 40%;
+    flex-basis: 60%;
+    font-size: 0.9rem;
     margin-right: 70px;
 }
 
