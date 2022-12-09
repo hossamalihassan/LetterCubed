@@ -9,13 +9,18 @@
     
         // signin validation
         include('config/search_in_DB.php');
-        $sign_in_check = get_from_db("users", "user_email", $signin_email, $conn)[0];
+        $search_for_user = get_from_db("users", "user_email", $signin_email, $conn);
+        $sign_in_check = empty($search_for_user) ? null : $search_for_user[0];
 
         // signin is done
         if(!empty($sign_in_check)){
             if($signin_email == $sign_in_check["user_email"] && password_verify($signin_password, $sign_in_check["user_password"])){
+                include("inc/User.php");
+                $signed_in_user = new User($sign_in_check["user_id"], $sign_in_check["user_name"], $sign_in_check["user_username"], $sign_in_check["user_email"], $sign_in_check["number_of_movies_watched"], $sign_in_check["number_of_watchlist_movies"]);
+
                 include("inc/session_script.php");
-                set_session($sign_in_check);
+                set_session($signed_in_user->user_id);
+
                 header("location: ./search.php");
             } 
             

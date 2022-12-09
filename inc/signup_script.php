@@ -14,8 +14,11 @@
 
         // signup validation
         include('config/search_in_DB.php');
-        $sign_up_email_check = get_from_db("users", "user_email", $signup_email, $conn)[0];
-        $sign_up_username_check = get_from_db("users", "user_username", $signup_username, $conn)[0];
+        $search_if_email_exists = get_from_db("users", "user_email", $signup_email, $conn);
+        $search_if_username_exists = get_from_db("users", "user_username", $signup_username, $conn);
+        
+        $sign_up_email_check = empty($search_if_email_exists) ? null : $search_if_email_exists[0];
+        $sign_up_username_check = empty($search_if_username_exists) ? null : $search_if_username_exists[0];
         
         if(!empty($sign_up_email_check)){
             $signup_email_err = "Email is already used";
@@ -27,11 +30,14 @@
 
         // signup is done
         if(empty($signup_email_err) && empty($sign_up_username_check)){
+            include('User.php');
             include('config/add_user_to_DB.php');
+            $signed_up_user = new User(0, $signup_name, $signup_username, $signup_email, 0, 0);
+            add_user_to_db($signed_up_user, $signup_hashed_password, $conn);
 
+            $search_for_signed_up_user = get_from_db("users", "user_email", $signed_up_user->user_email, $conn)[0];
             include("inc/session_script.php");
-            $user = get_from_db("users", "user_email", $signup_email, $conn)[0];
-            set_session($user);
+            set_session($search_for_signed_up_user["user_id"]);
 
             header("location: ./search.php");
         }

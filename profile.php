@@ -18,12 +18,12 @@
         <link rel="stylesheet" href="styling/profile-styling.css">
 
         <title>
-            <?php echo $user["user_name"] . "'s" ?> - LetterCubed
+            <?php echo $user->user_name . "'s" ?> - LetterCubed
         </title>
     </head>
     <body>
 
-        <?php include("inc/header.php"); echo $_SESSION["user_id"] ?>
+        <?php include("inc/header.php"); ?>
         <!-- main container -->
         <div class="container">
 
@@ -35,10 +35,10 @@
                         </div>
                         <div class="profile-name">
                             <p class="profile-full-name">
-                                <?php echo $user["user_name"] ?>
+                                <?php echo $user->user_name ?>
                             </p>
                             <p class="profile-username">
-                                @<?php echo $user["user_username"] ?>
+                                @<?php echo $user->user_username ?>
                             </p>
                         </div>
                     </div>
@@ -46,14 +46,14 @@
                     <div class="profile-stats">
                         <div class="profile-movies-watched-stats">
                             <p class="profile-number-of-movies-watched">
-                                <?php echo $user["number_of_movies_watched"] ?>
+                                <?php echo $user->number_of_movies_watched ?>
                             </p>
                             <p class="stats-title">Movies watched</p>
                         </div>
         
                         <div class="profile-movies-watchlist-stats">
                             <p class="profile-number-of-watchlist-movies">
-                                <?php echo $user["number_of_watchlist_movies"] ?>
+                                <?php echo $user->number_of_watchlist_movies ?>
                             </p>
                             <p class="stats-title">Movies in watchlist</p>
                         </div>

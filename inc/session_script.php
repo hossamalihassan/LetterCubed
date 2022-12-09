@@ -1,9 +1,8 @@
 <?php
 
-    function set_session($user){
+    function set_session($user_id){
         session_start();
-        $_SESSION["user_id"] = $user["user_id"];
-        $_SESSION["user_username"] = $user["user_username"];
+        $_SESSION["user_id"] = $user_id;
     }
 
 ?>

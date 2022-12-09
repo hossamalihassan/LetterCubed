@@ -1,9 +1,8 @@
 <?php
 
     session_start();
-
     // to check if user is already signed-in
-    if (isset($_SESSION['user_username'])) {
+    if (isset($_SESSION['user_id'])) {
         header("location: search.php");
     }
 
