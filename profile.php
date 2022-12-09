@@ -17,12 +17,13 @@
         <link rel="stylesheet" href="styling/main-styling.css">
         <link rel="stylesheet" href="styling/profile-styling.css">
 
-        <title>@<?php echo $user["user_username"] ?> - LetterCubed</title>
+        <title>
+            <?php echo $user["user_name"] . "'s" ?> - LetterCubed
+        </title>
     </head>
     <body>
 
-        <?php include("inc/header.php") ?>
-
+        <?php include("inc/header.php"); echo $_SESSION["user_id"] ?>
         <!-- main container -->
         <div class="container">
 

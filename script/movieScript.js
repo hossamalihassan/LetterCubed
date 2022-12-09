@@ -29,7 +29,7 @@ function sendMovieDataToPHPFile(movie, cond, file_name) {
     var request = new XMLHttpRequest()
     request.onreadystatechange = function() {
         if (request.readyState == XMLHttpRequest.DONE) {
-            window.location.reload();
+            window.location.reload(); 
         }
     }
     request.open("GET", url, true)

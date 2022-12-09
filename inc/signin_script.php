@@ -9,7 +9,7 @@
     
         // signin validation
         include('config/search_in_DB.php');
-        $sign_in_check = get_user_from_db("users", "user_email", $signin_email, $conn);
+        $sign_in_check = get_from_db("users", "user_email", $signin_email, $conn)[0];
 
         // signin is done
         if(!empty($sign_in_check)){

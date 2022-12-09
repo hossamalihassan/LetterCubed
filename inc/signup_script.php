@@ -14,8 +14,8 @@
 
         // signup validation
         include('config/search_in_DB.php');
-        $sign_up_email_check = get_from_db("users", "user_email", $signup_email, $conn);
-        $sign_up_username_check = get_from_db("users", "user_username", $signup_username, $conn);
+        $sign_up_email_check = get_from_db("users", "user_email", $signup_email, $conn)[0];
+        $sign_up_username_check = get_from_db("users", "user_username", $signup_username, $conn)[0];
         
         if(!empty($sign_up_email_check)){
             $signup_email_err = "Email is already used";
@@ -30,7 +30,7 @@
             include('config/add_user_to_DB.php');
 
             include("inc/session_script.php");
-            $user = get_from_db("users", "user_email", $signup_email, $conn);
+            $user = get_from_db("users", "user_email", $signup_email, $conn)[0];
             set_session($user);
 
             header("location: ./search.php");

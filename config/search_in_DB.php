@@ -7,7 +7,7 @@
     
         $search_returned = mysqli_fetch_all($search_result, MYSQLI_ASSOC);
 
-        return empty($search_returned) ? null : $search_returned[0];
+        return empty($search_returned) ? null : $search_returned;
     }
 
 ?>
