@@ -113,6 +113,9 @@ nav .clapboard i:hover {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     cursor: default;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    margin-top: -1rem;
 }
 
 /* for when we don't have photo img  */ 
@@ -130,12 +133,46 @@ nav .clapboard i:hover {
     cursor: default;
 }
 
+.page-not-found {
+    text-align: center;
+    font-family: azeretMono;
+    margin-top: 10rem;
+    font-size: 30px;
+    color: rgb(255, 76, 76)
+}
 
 /* main container */
 .container {
     width: 90%;
     margin: auto;
 }
+
+/* footer */
+.footer {
+    width: 100%;
+    height: 20rem;
+    margin-top: 17rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #212529;
+    justify-content: center;
+    align-items: center;
+    line-height: 0.2rem;
+}
+
+.footer .logo {
+    font-family: kindestreality;
+    font-size: 20px;
+    font-weight: 200;
+    cursor: default;
+}
+
+.footer .one {color: #F8F9FA}
+.footer .two {color: #DEE2E6}
+.footer .three {color: #ADB5BD}
+.footer .four {color: #495057; margin-left: 1%}
+.footer .five {color: #495057; margin-left: 2%}
+.footer .six {color: rgb(38, 45, 50); margin-left: 3%}
 
 @media (max-width: 980px) {
     nav .container {
@@ -187,30 +224,3 @@ nav .clapboard i:hover {
         margin-right: 70px;  
     }
 }
-
-/* footer */
-.footer {
-    width: 100%;
-    height: 300px;
-    margin-top: 150px;
-    display: flex;
-    flex-direction: column;
-    background-color: #212529;
-    justify-content: center;
-    align-items: center;
-    line-height: 0.2rem;
-}
-
-.footer .logo {
-    font-family: kindestreality;
-    font-size: 20px;
-    font-weight: 200;
-    cursor: default;
-}
-
-.footer .one {color: #F8F9FA}
-.footer .two {color: #DEE2E6}
-.footer .three {color: #ADB5BD}
-.footer .four {color: #495057; margin-left: 1%}
-.footer .five {color: #495057; margin-left: 2%}
-.footer .six {color: rgb(38, 45, 50); margin-left: 3%}

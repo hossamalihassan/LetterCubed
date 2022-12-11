@@ -3,7 +3,7 @@ let results_container = document.querySelector(".results")
 window.addEventListener("DOMContentLoaded", function() {
     const searchTag = getJsonFromUrl().search
     if(searchTag === "" || searchTag === undefined){
-        getPopularMovies()
+        getTrendingMovies()
     } else {
         document.title = adjustTitle(searchTag) + " - LetterCubed"
         getSearchResultsPageReady(searchTag.toLowerCase())
@@ -36,26 +36,31 @@ function adjustTitle(search_tag){
 }
 
 // get search results/popular movies from API
-async function getDataFromAPI(API_call){
+async function getDataFromAPI(API_call, type_of_data){
     let returnedData = await fetch(API_call).then(response => response.json())
 
     if(checkIfResultArrIsEmpty(returnedData.results)) return
 
-    console.log(returnedData)
+    let results;
+    if(type_of_data === "trending"){
+        results = returnedData.results.slice(0,10) // get first 6 trending movies
+    } else if(type_of_data === "search"){
+        results = returnedData.results
+    }
 
     // sort the data we got and render it 
-    let sortedResults = sortResultsByPopularity(returnedData.results)
+    let sortedResults = sortResultsByPopularity(results)
     await renderResults(sortedResults) 
 }
 
-function getPopularMovies(){
-    let popular_API_call = 'https://api.themoviedb.org/3/movie/popular?api_key='+ API_KEY +'&language=en-US&page=1'
-    getDataFromAPI(popular_API_call)
+function getTrendingMovies(){
+    let popular_API_call = 'https://api.themoviedb.org/3/trending/movie/week?api_key='+ API_KEY
+    getDataFromAPI(popular_API_call, "trending")
 }
 
 function getSearchResults(search_tag){
     let search_API_call = 'https://api.themoviedb.org/3/search/movie?api_key='+ API_KEY +'&language=en-US&query=' + search_tag
-    getDataFromAPI(search_API_call)
+    getDataFromAPI(search_API_call, "search")
 }
 
 function checkIfResultArrIsEmpty(results){
@@ -100,7 +105,7 @@ function formatResultBox(result){
                 getPosterTag(poster_path=poster_path, found=true) :
                 getPosterTag(poster_path="", found=false, title=title)
 
-    let movie = '<div class="search-result-box">' +
+    let movie = '<div class="search-result-box animate__animated animate__animated animate__fadeIn">' +
                     posterTag +
                     '<div class="main-info">' +
                         '<h2 class="name"><a href="movie.php?id='+ id +'" class="movie-page-link">'+ title +'</a></h2>' +
@@ -120,7 +125,6 @@ function getPosterTag(poster_path, found, title){
                         '<p>' + title + '</p>' +
                     '</div>'
     } else {
-      
         let poster = "https://image.tmdb.org/t/p/w500" + poster_path;
         posterTag = '<div class="poster">' +
                         '<img src="'+ poster +'" class="poster-img">' +

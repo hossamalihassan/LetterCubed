@@ -19,7 +19,7 @@
                 $signed_in_user = new User($sign_in_check["user_id"], $sign_in_check["user_name"], $sign_in_check["user_username"], $sign_in_check["user_email"], $sign_in_check["number_of_movies_watched"], $sign_in_check["number_of_watchlist_movies"]);
 
                 include("inc/session_script.php");
-                set_session($signed_in_user->user_id);
+                set_session($signed_in_user->user_id, $signed_in_user->user_username);
 
                 header("location: ./search.php");
             } 

@@ -11,3 +11,7 @@ function getJsonFromUrl(url) {
     });
     return result;
 }
+
+function goToSignupPage() {
+  window.location = "index.php"
+}

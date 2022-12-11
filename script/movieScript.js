@@ -9,10 +9,13 @@ window.addEventListener("DOMContentLoaded", function() {
 // get and format the data we got 
 let returnedMovieData;
 async function getMovieData(movie_id){
-    let movie_API_call = 'https://api.themoviedb.org/3/movie/' + movie_id +'?api_key='+ API_KEY +'&append_to_response=credits'
-    returnedMovieData = await fetch(movie_API_call).then(response => response.json())
-
-    formatMovieData(returnedMovieData)
+    try {
+        let movie_API_call = 'https://api.themoviedb.org/3/movie/' + movie_id +'?api_key='+ API_KEY +'&append_to_response=credits'
+        returnedMovieData = await fetch(movie_API_call).then(response => response.json())
+        formatMovieData(returnedMovieData)
+    } catch(e) {
+        window.location = "page_not_found.php"
+    }    
 }
 
 // add and remove movie from database
@@ -141,7 +144,7 @@ function setCastSection(cast) {
     cast_section_content = ""
 
     cast.forEach(credit => (
-        cast_section_content += '<div class="movie-cast-box">' +
+        cast_section_content += '<div class="movie-cast-box animate__animated animate__fadeIn">' +
 
                                     getCastPhotoTag(credit.img, credit.name) +
 
@@ -171,7 +174,7 @@ function getCastPhotoTag(photo_path, name){
     } 
     
     else {
-        let photo = "https://image.tmdb.org/t/p/original" + photo_path;
+        let photo = "https://image.tmdb.org/t/p/w500" + photo_path;
         photo_tag = '<div class="cast-actor-img">' +
                         '<img src="'+ photo  +'">' +
                     '</div>'

@@ -37,7 +37,7 @@
 
             $search_for_signed_up_user = get_from_db("users", "user_email", $signed_up_user->user_email, $conn)[0];
             include("inc/session_script.php");
-            set_session($search_for_signed_up_user["user_id"]);
+            set_session($search_for_signed_up_user["user_id"], $signed_up_user->user_username);
 
             header("location: ./search.php");
         }

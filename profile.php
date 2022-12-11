@@ -64,7 +64,7 @@
                 <section class="profile-movies-logged">
 
                         <div class="profile-movies-logged-label">
-                            <p>Movies you've logged</p>
+                            <p>Movies logged recently</p>
                         </div>
 
                         <div class="movies-logged">
@@ -97,7 +97,6 @@
         </div>
 
         <?php include("inc/footer.php") ?>
-
 
 
         <script src="script/navbarScript.js"></script>

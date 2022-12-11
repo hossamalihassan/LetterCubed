@@ -13,6 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
         <!-- styling -->
         <link rel="stylesheet" href="styling/main-styling.css">
@@ -32,7 +33,7 @@
             <div class="movie-deatils">
 
                 <div class="poster-options">
-                    <div class="poster-director">
+                    <div class="poster-director animate__animated animate__fadeIn">
                         <div class="poster-tag"></div>
 
                         <div class="director">
@@ -41,13 +42,14 @@
                         </div>
                     </div>
 
+                    <?php if(isset($_SESSION["user_id"])) : ?>
+
                     <div class="movie-options">
                         <div class="log-option">
                             <div class="rating">
                                 <div class="rating-title">Rating</div>
                                 <div class="rating-stars">
-                                    <?php
-                                        if($movie_rating > 0){
+                                    <?php if($movie_rating > 0) {
                                             for($i=0; $i < $movie_rating; $i++){
                                                 echo '<i class="fas fa-star rating-star non-clickable"></i>';
                                             }
@@ -70,7 +72,6 @@
                             </div>
 
                         </div>
-
                         <div class="options-btns">
                             <div class="watched-option">
                                 <button class="watched-btn" onclick="<?php echo $watched_check == false ? "addMovie('watched')" : "removeMovie('watched')" ?>">
@@ -88,7 +89,18 @@
                                 </button>
                             </div>
                         </div>
+
                     </div>
+
+                    <?php else: ?>
+
+                        <div class="signup-option">
+                            <button class="signup-btn" onclick="goToSignupPage()">
+                                Sign up to log this movie
+                            </button>
+                        </div>
+
+                    <?php endif; ?>
                     
                 </div>
 
@@ -136,11 +148,12 @@
         <?php include("inc/footer.php") ?>
 
         <?php
+            if(isset($_SESSION["user_id"]) && $watched_check == false) {
             // to make it clickable only if the move isnt logged
-            if($watched_check == false){
-                echo '<script src="script/ratingScript.js"></script>';
+            echo '<script src="script/ratingScript.js"></script>';
             }
         ?>
+
         <script src="script/mainScript.js"></script>
         <script src="script/movieScript.js"></script>
         <script src="script/navbarScript.js"></script>
