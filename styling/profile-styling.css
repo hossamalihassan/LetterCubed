@@ -1,6 +1,8 @@
 /* profile main info */
 .profile-container {
     display: flex;
+    flex-direction: row;
+    gap: 2rem;
     margin-top: 30px;
 }
 
@@ -81,10 +83,6 @@
 }
 
 /* movies logged */
-.profile-movies-logged {
-    padding-left: 30px
-}
-
 .profile-movies-logged .profile-movies-logged-label {
     font-size: 1.2rem;
     font-family: MPLUSRounded1c;
@@ -99,16 +97,35 @@
 }
 
 .profile-movies-logged .movies-logged .movie-watched-box {
-    width: 10rem;
     display: flex;
-    transition: 0.2s all ease-in-out;
+    flex-direction: column;
+    text-align: center;
 }
 
-.profile-movies-logged .movies-logged .movie-watched-box img {
+.profile-movies-logged .movies-logged .movie-watched-box .movie-poster {
     width: 100%;
-    display: flex;
+    height: 17rem;
     border-radius: 20px;
-    box-shadow: 0 0 2px #000;
+    box-shadow: 0 0 3px #000;
+}
+
+.profile-movies-logged .movies-logged .movie-watched-box .movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    background-color: #014F86;
+    border-radius: 20px;
+}
+
+.logged-movie-rating {
+    cursor: default;
+}
+
+.logged-movie-rating .rating-star {
+    color: #343A40;
+    font-size: 0.8rem;
+    cursor: default;
 }
 
 @media (max-width: 808px) {

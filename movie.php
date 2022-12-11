@@ -49,7 +49,8 @@
                             <div class="rating">
                                 <div class="rating-title">Rating</div>
                                 <div class="rating-stars">
-                                    <?php if($movie_rating > 0) {
+                                    <?php
+                                        if($movie_rating > 0) {
                                             for($i=0; $i < $movie_rating; $i++){
                                                 echo '<i class="fas fa-star rating-star non-clickable"></i>';
                                             }

@@ -15,7 +15,7 @@
             $watchlist_movie_poster = $_GET["poster_path"];  
         }
     
-        $addMovieToWatchlist = "INSERT INTO watchlist_logs (watchlist_log_user_id, watchlist_log_movie_id, watchlist_log_movie_name, watchlist_log_movie_poster) VALUES ('$user_id', '$watchlist_movie_id', '$watchlist_movie_name', '$watchlist_movie_poster');";
+        $addMovieToWatchlist = "INSERT INTO watchlist_logs (watchlist_log_user_id, watchlist_log_movie_id, watchlist_log_movie_name, watchlist_log_movie_poster) VALUES ('" . $user_id . "', '" . $watchlist_movie_id . "', \"" . $watchlist_movie_name . "\", '". $watchlist_movie_poster ."');";
         // update user stats
         $addMovieToWatchlist .= "UPDATE users SET number_of_watchlist_movies = $number_of_movies_added_to_watchlist WHERE user_id = $user_id";
 

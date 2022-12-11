@@ -19,7 +19,7 @@
             $movie_rating = $_GET["rating"];  
         }
             
-        $addMovie = "INSERT INTO movies_logs (log_user_id, log_movie_id, log_movie_name, log_movie_poster, log_movie_rating) VALUES ($user_id, $movie_id, '$movie_name', '$movie_poster', $movie_rating);";
+        $addMovie = "INSERT INTO movies_logs (log_user_id, log_movie_id, log_movie_name, log_movie_poster, log_movie_rating) VALUES ('" . $user_id . "', '" . $movie_id . "', \"" . $movie_name . "\", '". $movie_poster ."', '" . $movie_rating. "');";
         // update user stats
         $addMovie .= "UPDATE users SET number_of_movies_watched = $number_of_movies_logged WHERE user_id = $user_id";
     

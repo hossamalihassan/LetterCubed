@@ -1,6 +1,6 @@
 <?php 
 
-    function get_from_db($table, $col, $to_look_for, $conn) {
+    function get_from_db($table, $col, $to_look_for ,$conn) {
         $search = 'SELECT * FROM `'. $table .'` WHERE `'. $col .'` LIKE "' . $to_look_for . '";';
 
         $search_result = mysqli_query($conn, $search);

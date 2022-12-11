@@ -13,6 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
         
         <link rel="stylesheet" href="styling/main-styling.css">
         <link rel="stylesheet" href="styling/profile-styling.css">
@@ -69,25 +70,22 @@
 
                         <div class="movies-logged">
 
-                            <div class="movie-watched-box">
-                                <img src="img/posters/Superbad.jfif">
-                            </div>
+                        <?php if(!empty($user_logged_movies)): ?>
+                            <?php foreach($user_logged_movies as $logged_movie): ?>
+                                <div class="movie-watched-box">
+                                    <a href="movie.php?id=<?php echo $logged_movie["log_movie_id"] ?>">
+                                        <img src="https://image.tmdb.org/t/p/w500<?php echo $logged_movie["log_movie_poster"] ?>" class="movie-poster animate__animated animate__fadeIn">
+                                    </a>
 
-                            <div class="movie-watched-box">
-                                <img src="img/posters/Punch-drunk-love.jfif">
-                            </div>
+                                    <p class="logged-movie-rating">
+                                        <?php for($i=0; $i < $logged_movie["log_movie_rating"]; $i++): ?>
+                                            <i class="fas fa-star rating-star animate__animated animate__zoomIn"></i>
+                                        <?php endfor; ?>
+                                    </p>
 
-                            <div class="movie-watched-box">
-                                <img src="img/posters/The-salesman.jfif">
-                            </div>
-
-                            <div class="movie-watched-box">
-                                <img src="img/posters/Superbad.jfif">
-                            </div>
-
-                            <div class="movie-watched-box">
-                                <img src="img/posters/Punch-drunk-love.jfif">
-                            </div>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
 
                         </div>
                         
