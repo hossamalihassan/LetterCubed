@@ -1,0 +1,81 @@
+
+.movies-logged {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+.movies-logged .movie-watched-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.movies-logged .movie-watched-box .movie-poster {
+    width: 100%;
+    height: 17rem;
+    border-radius: 20px;
+    box-shadow: 0 0 3px #000;
+}
+
+.movies-logged .movie-watched-box .movie-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    background-color: #014F86;
+    border-radius: 20px;
+}
+
+.logged-movie-rating {
+    margin-top: 0rem;
+}
+
+.logged-movie-rating .rating-star {
+    color: #343A40;
+    font-size: 0.8rem;
+}
+
+.movie-logged-pageination {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.movie-logged-pageination ul {
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    width: 70%;
+}
+
+.movie-logged-pageination ul li {
+    display: inline-block;
+    background-color: #212529;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 3px #000;
+    transition: 200ms all ease-in-out;
+}
+
+.movie-logged-pageination ul a {
+    color: #ADB5BD;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.movie-logged-pageination ul li:hover {
+    background-color: #000;
+}
+
+.movie-logged-pageination ul li.active {
+    background-color: #ADB5BD;
+    color: #212529;
+}

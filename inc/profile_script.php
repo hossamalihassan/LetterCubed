@@ -14,7 +14,7 @@
             header("location: ../lettercubed/page_not_found.php");
         }
 
-        $user_logged_movies = get_logged_movies("movies_logs", "log_user_id", $user->user_id, "log_id", 5, 0, $conn);
+        $user_logged_movies = get_logged_movies("movies_logs", "log_user_id", $user->user_id, "log_id", 5, 1, $conn);
     }
     
     else {

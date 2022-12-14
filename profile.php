@@ -17,6 +17,7 @@
         
         <link rel="stylesheet" href="styling/main-styling.css">
         <link rel="stylesheet" href="styling/profile-styling.css">
+        <link rel="stylesheet" href="styling/movies-logged-styling.css">
 
         <title>
             <?php echo $user->user_name . "'s" ?> - LetterCubed
@@ -27,7 +28,6 @@
         <?php include("inc/header.php"); ?>
         <!-- main container -->
         <div class="container">
-
             <div class="profile-container">
                 <section class="profile-main-info">
                     <div class="profile-username">
@@ -65,7 +65,10 @@
                 <section class="profile-movies-logged">
 
                         <div class="profile-movies-logged-label">
-                            <p>Movies logged recently</p>
+                            <p class="logged-label">Movies logged recently</p>
+                            <?php if($user->number_of_movies_watched > 5): ?>
+                                <a href="all_movies_logged.php?user_name=<?php echo $_GET["user_name"] ?>&type=watched&page=1" class="movies-logged-see-more">See all movies</a>
+                            <?php endif; ?>
                         </div>
 
                         <div class="movies-logged">
@@ -85,6 +88,9 @@
 
                                 </div>
                             <?php endforeach; ?>
+
+                        <?php else: ?>
+                            <p>no movies logged yet</p>
                         <?php endif; ?>
 
                         </div>

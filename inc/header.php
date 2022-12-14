@@ -28,7 +28,7 @@
                 <?php if(isset($_SESSION["user_id"])) : ?>
 
                     <li class="link-item" id="watchlist-link">
-                        <a href="watchlist.php">Watchlist</a>
+                        <a href="watchlist.php?user_name=<?php echo $_SESSION["user_username"] ?>&type=watchlist&page=1">Watchlist</a>
                     </li>
                     <li class="link-item" id="search-link">
                         <a href="profile.php?user_name=<?php echo $_SESSION["user_username"] ?>">Profile</a>

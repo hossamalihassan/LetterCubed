@@ -83,49 +83,26 @@
 }
 
 /* movies logged */
-.profile-movies-logged .profile-movies-logged-label {
-    font-size: 1.2rem;
+.profile-movies-logged {
     font-family: MPLUSRounded1c;
 }
 
-.profile-movies-logged .movies-logged {
+.profile-movies-logged-label {
+    font-size: 1.2rem;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 0.5rem;
-}
-
-.profile-movies-logged .movies-logged .movie-watched-box {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.profile-movies-logged .movies-logged .movie-watched-box .movie-poster {
     width: 100%;
-    height: 17rem;
-    border-radius: 20px;
-    box-shadow: 0 0 3px #000;
+    align-items: center;
 }
 
-.profile-movies-logged .movies-logged .movie-watched-box .movie-poster img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    background-color: #014F86;
-    border-radius: 20px;
-}
-
-.logged-movie-rating {
-    cursor: default;
-}
-
-.logged-movie-rating .rating-star {
+.profile-movies-logged-label .movies-logged-see-more {
+    margin-left: auto;
+    text-decoration: none;
     color: #343A40;
-    font-size: 0.8rem;
-    cursor: default;
+    transition: 200ms all ease-in-out;
+}
+
+.profile-movies-logged-label .movies-logged-see-more:hover {
+    color: #ADB5BD
 }
 
 @media (max-width: 808px) {
