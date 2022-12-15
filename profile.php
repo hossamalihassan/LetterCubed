@@ -46,7 +46,16 @@
                                         <button type="submit" name="profile_pic_submit" class="change-pic-submit">Change</button>
                                     </form>
                                 </div>
+
+                            <?php else: ?>
+                                <div class="follow-section">
+                                    <button class="<?php echo ($follow_cond == 'Follow') ? 'follow-btn' : 'unfolllow-btn' ?>"
+                                            onclick="sendRequest('<?php echo $user->user_id ?>', '<?php echo ($follow_cond == 'Follow') ? 'addFollower' : 'removeFollower' ?>')">
+                                        <?php echo $follow_cond ?>
+                                    </button>
+                                </div>
                             <?php endif; ?>
+
                         </div>
 
                         <div class="profile-name">
@@ -60,18 +69,37 @@
                     </div>
 
                     <div class="profile-stats">
-                        <div class="profile-movies-watched-stats">
-                            <p class="profile-number-of-movies-watched">
-                                <?php echo $user->number_of_movies_watched ?>
-                            </p>
-                            <p class="stats-title">Movies watched</p>
-                        </div>
-        
-                        <div class="profile-movies-watchlist-stats">
-                            <p class="profile-number-of-watchlist-movies">
-                                <?php echo $user->number_of_watchlist_movies ?>
-                            </p>
-                            <p class="stats-title">Movies in watchlist</p>
+
+                        <div class="following-stats">
+                                <div class="profile-stats-box">
+                                    <p>
+                                        <?php echo $user->user_followers ?>
+                                    </p>
+                                    <p class="stats-title">Followers</p>
+                                </div>
+                
+                                <div class="profile-stats-box">
+                                    <p>
+                                        <?php echo $user->user_following ?>
+                                    </p>
+                                    <p class="stats-title">Following</p>
+                                </div>
+                            </div>
+
+                        <div class="watching-stats">
+                            <div class="profile-stats-box">
+                                <p>
+                                    <?php echo $user->number_of_movies_watched ?>
+                                </p>
+                                <p class="stats-title">Movies watched</p>
+                            </div>
+            
+                            <div class="profile-stats-box">
+                                <p>
+                                    <?php echo $user->number_of_watchlist_movies ?>
+                                </p>
+                                <p class="stats-title">Movies in watchlist</p>
+                            </div>
                         </div>
         
                     </div>
@@ -118,7 +146,7 @@
         <?php include("inc/footer.php") ?>
 
 
-        <script src="script/mainScript.js"></script>
+        <script src="script/profileScript.js"></script>
         <script src="script/navbarScript.js"></script>
 
     </body>

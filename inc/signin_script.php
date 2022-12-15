@@ -16,7 +16,7 @@
         if(!empty($sign_in_check)){
             if($signin_email == $sign_in_check["user_email"] && password_verify($signin_password, $sign_in_check["user_password"])){
                 include("inc/User.php");
-                $signed_in_user = new User($sign_in_check["user_id"], $sign_in_check["user_name"], $sign_in_check["user_username"], $sign_in_check["user_email"],  $sign_in_check["user_profile_img"], $sign_in_check["number_of_movies_watched"], $sign_in_check["number_of_watchlist_movies"]);
+                $signed_in_user = new User($sign_in_check["user_id"], $sign_in_check["user_name"], $sign_in_check["user_username"], $sign_in_check["user_email"],  $sign_in_check["user_profile_img"], $sign_in_check["number_of_movies_watched"], $sign_in_check["number_of_watchlist_movies"], $sign_in_check["user_followers"], $sign_in_check["user_following"]);
 
                 include("inc/session_script.php");
                 set_session($signed_in_user->user_id, $signed_in_user->user_username);

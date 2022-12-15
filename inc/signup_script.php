@@ -32,7 +32,7 @@
         if(empty($signup_email_err) && empty($sign_up_username_check)){
             include('User.php');
             include('config/add_user_to_DB.php');
-            $signed_up_user = new User(0, $signup_name, $signup_username, $signup_email, " ", 0, 0);
+            $signed_up_user = new User(0, $signup_name, $signup_username, $signup_email, " ", 0, 0, 0, 0);
             add_user_to_db($signed_up_user, $signup_hashed_password, $conn);
 
             $search_for_signed_up_user = get_from_db("*", "users", "user_email", $signed_up_user->user_email, $conn)[0];
