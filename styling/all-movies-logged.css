@@ -12,11 +12,17 @@
 }
 
 .logged-movies-user .logged-movies-user-photo {
-    width: 3rem;
+    width: 3.2rem;
+    height: 3.2rem;
 }
 
 .logged-movies-user .logged-movies-user-photo img {
     width: 100%;
+    height: 100%;
+    clip-path: circle();
+    display: flex;
+    object-fit: cover;
+    object-position: center;
 }
 
 .logged-movies-user .logged-movies-username a {

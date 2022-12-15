@@ -4,6 +4,9 @@
         include("config/database_connection.php");
         include('config/get_user_logged_movies.php');
         include('config/count_rows_from_DB.php');
+        include('config/search_in_DB.php');
+
+        $user_profile_pic = get_from_db("user_profile_img", "users", "user_username", $_GET["user_name"], $conn)[0];
 
         $page = $_GET["page"];
         $user_name = $_GET["user_name"];

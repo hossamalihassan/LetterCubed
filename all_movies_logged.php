@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="styling/all-movies-logged.css">
 
     <title>
-        <?php echo $_SESSION["user_username"] ?>'s movies - page 1 - LetterCubed
+        <?php echo $_GET["user_name"] ?>'s movies - page 1 - LetterCubed
     </title>
 </head>
 <body>
@@ -32,7 +32,7 @@
     <div class="container">
         <div class="logged-movies-user">
             <div class="logged-movies-user-photo">
-                <img src="img/profile-img.png">
+                <img src="img/profile_pics/<?php echo ($user_profile_pic["user_profile_img"] == null) ? "profile-img-default.png"  : $user_profile_pic["user_profile_img"] ?>">
             </div>
             <p class="logged-movies-username">
                 <a href="profile.php?user_name=<?php echo $_GET["user_name"] ?>">

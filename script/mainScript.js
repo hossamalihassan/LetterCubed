@@ -15,3 +15,9 @@ function getJsonFromUrl(url) {
 function goToSignupPage() {
   window.location = "index.php"
 }
+
+// prevent change profile picture form from reloading
+// let change_profile_pic = document.querySelector(".change-pic-form")
+// change_profile_pic.addEventListener("submit", function(e) {
+//   e.preventDefault()
+// })

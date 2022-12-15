@@ -34,7 +34,7 @@
 
             <div class="logged-movies-user">
                 <div class="logged-movies-user-photo">
-                    <img src="img/profile-img.png">
+                    <img src="img/profile_pics/<?php echo ($user_profile_pic["user_profile_img"] == null) ? "profile-img-default.png"  : $user_profile_pic["user_profile_img"] ?>">
                 </div>
                 <p class="logged-movies-username">
                     <a href="profile.php?user_name=<?php echo $_GET["user_name"] ?>">

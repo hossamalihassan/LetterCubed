@@ -32,8 +32,23 @@
                 <section class="profile-main-info">
                     <div class="profile-username">
                         <div class="profile-img">
-                            <img src="img/profile-img.png">
+                            <div class="profile-img-container">
+                                <img src="img/profile_pics/<?php echo ($user->user_profile_pic == null) ? "profile-img-default.png"  : $user->user_profile_pic ?>">
+                            </div>
+
+                            <?php if($_GET["user_name"] == $_SESSION["user_username"]): ?>
+                                <div class="profile-change-photo">
+                                    <form action="" method="post" enctype="multipart/form-data" class="change-pic-form">
+                                        <label for="profile_pic" class="change-pic-label">
+                                            <i class="fa-solid fa-user"></i>
+                                        </label>
+                                        <input type="file" id="profile_pic" name="profile_pic" accept="image/png, image/jpeg">
+                                        <button type="submit" name="profile_pic_submit" class="change-pic-submit">Change</button>
+                                    </form>
+                                </div>
+                            <?php endif; ?>
                         </div>
+
                         <div class="profile-name">
                             <p class="profile-full-name">
                                 <?php echo $user->user_name ?>
@@ -103,6 +118,7 @@
         <?php include("inc/footer.php") ?>
 
 
+        <script src="script/mainScript.js"></script>
         <script src="script/navbarScript.js"></script>
 
     </body>
