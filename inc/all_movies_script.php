@@ -1,6 +1,6 @@
 <?php
 
-    if(isset($_SESSION['user_id']) || isset($_GET["user_name"])){
+    if(isset($_GET["user_name"])){
         include("config/database_connection.php");
         include('config/get_user_logged_movies.php');
         include('config/count_rows_from_DB.php');

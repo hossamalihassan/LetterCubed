@@ -1,7 +1,11 @@
 <?php 
 
     session_start();
-    include("inc/all_movies_script.php");
+    if($_GET["type"] == "watchlist"){
+        include("inc/all_movies_script.php");
+    } else {
+        header("location: page_not_found");
+    }
 
 ?>
 
@@ -18,7 +22,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
         <link rel="stylesheet" href="styling/main-styling.css">
-        <link rel="stylesheet" href="styling/all-movies-logged.css">
         <link rel="stylesheet" href="styling/movies-logged-styling.css">
 
         <title>
@@ -34,7 +37,9 @@
 
             <div class="logged-movies-user">
                 <div class="logged-movies-user-photo">
-                    <img src="img/profile_pics/<?php echo ($user_profile_pic["user_profile_img"] == null) ? "profile-img-default.png"  : $user_profile_pic["user_profile_img"] ?>">
+                    <a href="profile.php?user_name=<?php echo $_GET["user_name"] ?>">
+                        <img src="img/profile_pics/<?php echo ($user_profile_pic["user_profile_img"] == null) ? "profile-img-default.png"  : $user_profile_pic["user_profile_img"] ?>">
+                    </a>
                 </div>
                 <p class="logged-movies-username">
                     <a href="profile.php?user_name=<?php echo $_GET["user_name"] ?>">

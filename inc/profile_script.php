@@ -5,13 +5,18 @@
         include('config/search_in_DB.php');
         include('config/get_user_logged_movies.php');
         include('config/check_if_user_is_following.php');
+        include('config/count_rows_from_DB.php');
         include('inc/User.php');
 
         // get user's data from db
         $user_data_from_db = get_from_db("*", "users", "user_username", $_GET["user_name"], $conn)[0];
+        $user_followers = get_count_of_rows("users_followers", "user_id", $user_data_from_db["user_id"], $conn);
+        $user_following = get_count_of_rows("users_followers", "follower_id", $user_data_from_db["user_id"], $conn);
+        $user_watched_movies = get_count_of_rows("movies_logs", "log_user_id", $user_data_from_db["user_id"], $conn);
+        $user_movies_in_watchlist = get_count_of_rows("watchlist_logs", "watchlist_log_user_id", $user_data_from_db["user_id"], $conn);
 
         if(!empty($user_data_from_db)) {
-            $user = new User($user_data_from_db["user_id"], $user_data_from_db["user_name"], $user_data_from_db["user_username"], $user_data_from_db["user_email"], $user_data_from_db["user_profile_img"], $user_data_from_db["number_of_movies_watched"], $user_data_from_db["number_of_watchlist_movies"], $user_data_from_db["user_followers"], $user_data_from_db["user_following"]);
+            $user = new User($user_data_from_db["user_id"], $user_data_from_db["user_name"], $user_data_from_db["user_username"], $user_data_from_db["user_email"], $user_data_from_db["user_profile_img"], $user_watched_movies, $user_movies_in_watchlist, $user_followers, $user_following);
         } else {
             header("location: ../lettercubed/page_not_found.php");
         }

@@ -55,3 +55,9 @@
 .logged-movie-rating .rating-star {
     font-size: 0.6rem;
 }
+
+@media (max-width: 980px) {
+    .movies-logged {
+        justify-content: center;
+    }
+}

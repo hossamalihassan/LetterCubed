@@ -1,7 +1,11 @@
 <?php 
 
     session_start();
-    include("inc/all_movies_script.php");
+    if($_GET["type"] == "watched"){
+        include("inc/all_movies_script.php");
+    } else {
+        header("location: page_not_found.php");
+    }
 
 ?>
 
@@ -18,7 +22,6 @@
 
     <link rel="stylesheet" href="styling/main-styling.css">
     <link rel="stylesheet" href="styling/movies-logged-styling.css">
-    <link rel="stylesheet" href="styling/all-movies-logged.css">
 
     <title>
         <?php echo $_GET["user_name"] ?>'s movies - page 1 - LetterCubed
@@ -32,7 +35,9 @@
     <div class="container">
         <div class="logged-movies-user">
             <div class="logged-movies-user-photo">
-                <img src="img/profile_pics/<?php echo ($user_profile_pic["user_profile_img"] == null) ? "profile-img-default.png"  : $user_profile_pic["user_profile_img"] ?>">
+                <a href="profile.php?user_name=<?php echo $_GET["user_name"] ?>">
+                    <img src="img/profile_pics/<?php echo ($user_profile_pic["user_profile_img"] == null) ? "profile-img-default.png"  : $user_profile_pic["user_profile_img"] ?>">
+                </a>
             </div>
             <p class="logged-movies-username">
                 <a href="profile.php?user_name=<?php echo $_GET["user_name"] ?>">
@@ -81,6 +86,7 @@
 
     <?php include("inc/footer.php"); ?>
 
+    <script src="script/navbarScript.js"></script>
 
 </body>
 </html>

@@ -114,13 +114,13 @@
                             <?php endif; ?>
                         </div>
 
-                        <div class="movies-logged">
+                        <div class="movies-logged profile-movies-logged">
 
                         <?php if(!empty($user_logged_movies)): ?>
                             <?php foreach($user_logged_movies as $logged_movie): ?>
                                 <div class="movie-watched-box">
                                     <a href="movie.php?id=<?php echo $logged_movie["log_movie_id"] ?>">
-                                        <img src="https://image.tmdb.org/t/p/w500<?php echo $logged_movie["log_movie_poster"] ?>" class="movie-poster animate__animated animate__fadeIn">
+                                        <img src="https://image.tmdb.org/t/p/w500<?php echo $logged_movie["log_movie_poster"] ?>" class="movie-poster profile-movie-poster animate__animated animate__fadeIn">
                                     </a>
 
                                     <p class="logged-movie-rating">

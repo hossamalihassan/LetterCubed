@@ -224,7 +224,7 @@
 .movie-options .options-btns .watched-option,
 .movie-options .options-btns .watchlist-option {
     width: 100%;
-    height: 50%;
+    height: 70%;
 }
 
 .movie-options .options-btns .watched-option .watched-btn,
@@ -274,6 +274,11 @@
 
     .movie-deatils {
         flex-direction: column;
+    }
+
+    .movie-deatils .movie-info {
+        padding: .5rem;
+        margin-top: 2rem;
     }
 
     .movie-deatils .movie-cast .cast-content {
