@@ -1,7 +1,6 @@
 <?php
 
-    $movie_id = $_GET["id"];
-    include("inc/movie_check_watched_watchlist.php");
+    include("inc/movie_page_script.php");
 
 ?>
 
@@ -138,6 +137,28 @@
                             
                         </div>
 
+                    </div>
+
+                    <?php if(!empty($movie_ratings)): ?>
+                        <div class="friends-ratings">
+                            <div class="title">Friends Ratings</div>
+                            
+                            <div class="friends-ratings-content">
+                                <?php foreach($movie_ratings as $movie_rating): ?>
+                                    <div class="friend-rating-box">
+                                        <a href="profile.php?user_name=<?php echo $movie_rating["log_user_username"] ?>" class="friend-account">
+                                            <?php echo $movie_rating["log_user_username"]?>
+                                        </a>
+
+                                        <p class="logged-movie-rating">
+                                            <?php for($i=0; $i < $movie_rating["log_movie_rating"]; $i++): ?>
+                                                <i class="fas fa-star rating-star animate__animated animate__zoomIn"></i>
+                                            <?php endfor; ?>
+                                        </p>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
 

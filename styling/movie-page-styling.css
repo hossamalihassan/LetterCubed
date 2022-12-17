@@ -266,6 +266,42 @@
     padding-bottom: 1rem;
 }
 
+.friends-ratings {
+    margin-top: 2rem;
+}
+
+.friends-ratings .title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.friends-ratings .friends-ratings-content {
+    display: flex;
+    gap: 1rem;
+}
+
+.friends-ratings .friend-rating-box {
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    width: 7rem;
+    text-align: center;
+    padding: .8rem;
+}
+
+.friends-ratings .friend-rating-box .friend-account {
+    text-decoration: none;
+    color: #012A4A;
+    transition: 200ms all ease-in-out;
+}
+
+.friends-ratings .friend-rating-box .friend-account:hover {
+    color: #2C7DA0
+}
+
+.friends-ratings .friend-rating-box .logged-movie-rating {
+    color: #012A4A;
+}
+
 
 @media (max-width: 908px) {
     .poster-options {
