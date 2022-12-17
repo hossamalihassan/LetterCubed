@@ -1,0 +1,23 @@
+.newsfeed-friends-recently-logs {
+    font-family: MPLUSRounded1c;
+}
+
+.newsfeed-friends-recently-logs .title {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.recently-logged-by-friend-username {
+    text-decoration: none;
+    margin-bottom: .5rem;
+    color: #343A40;
+    transition: 200ms all ease-in-out;
+}
+
+.recently-logged-by-friend-username:hover {
+    color: #ADB5BD
+}
+
+.newsfeed-recently-logged {
+    justify-content: center;
+}
