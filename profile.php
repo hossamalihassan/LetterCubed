@@ -28,89 +28,134 @@
         <?php include("inc/header.php"); ?>
         <!-- main container -->
         <div class="container">
-            <div class="profile-container">
-                <section class="profile-main-info">
-                    <div class="profile-username">
-                        <div class="profile-img">
-                            <div class="profile-img-container">
-                                <img src="img/profile_pics/<?php echo ($user->user_profile_pic == null) ? "profile-img-default.png"  : $user->user_profile_pic ?>">
+            <div class="profile-content">
+                <div class="profile-container">
+                    <section class="profile-main-info">
+                        <div class="profile-username">
+                            <div class="profile-img">
+                                <div class="profile-img-container">
+                                    <img src="img/profile_pics/<?php echo ($user->user_profile_pic == null) ? "profile-img-default.png"  : $user->user_profile_pic ?>">
+                                </div>
+
+                                <?php if($_GET["user_name"] == $_SESSION["user_username"]): ?>
+                                    <div class="profile-change-photo">
+                                        <form action="" method="post" enctype="multipart/form-data" class="change-pic-form">
+                                            <label for="profile_pic" class="change-pic-label">
+                                                <i class="fa-solid fa-user"></i>
+                                            </label>
+                                            <input type="file" id="profile_pic" name="profile_pic" accept="image/png, image/jpeg">
+                                            <button type="submit" name="profile_pic_submit" class="change-pic-submit">Change</button>
+                                        </form>
+                                    </div>
+
+                                <?php else: ?>
+                                    <div class="follow-section">
+                                        <button class="<?php echo ($follow_cond == 'Follow') ? 'follow-btn' : 'unfolllow-btn' ?>"
+                                                onclick="sendRequest('<?php echo $user->user_id ?>', '<?php echo ($follow_cond == 'Follow') ? 'addFollower' : 'removeFollower' ?>')">
+                                            <?php echo $follow_cond ?>
+                                        </button>
+                                    </div>
+                                <?php endif; ?>
+
                             </div>
 
-                            <?php if($_GET["user_name"] == $_SESSION["user_username"]): ?>
-                                <div class="profile-change-photo">
-                                    <form action="" method="post" enctype="multipart/form-data" class="change-pic-form">
-                                        <label for="profile_pic" class="change-pic-label">
-                                            <i class="fa-solid fa-user"></i>
-                                        </label>
-                                        <input type="file" id="profile_pic" name="profile_pic" accept="image/png, image/jpeg">
-                                        <button type="submit" name="profile_pic_submit" class="change-pic-submit">Change</button>
-                                    </form>
-                                </div>
-
-                            <?php else: ?>
-                                <div class="follow-section">
-                                    <button class="<?php echo ($follow_cond == 'Follow') ? 'follow-btn' : 'unfolllow-btn' ?>"
-                                            onclick="sendRequest('<?php echo $user->user_id ?>', '<?php echo ($follow_cond == 'Follow') ? 'addFollower' : 'removeFollower' ?>')">
-                                        <?php echo $follow_cond ?>
-                                    </button>
-                                </div>
-                            <?php endif; ?>
-
+                            <div class="profile-name">
+                                <p class="profile-full-name">
+                                    <?php echo $user->user_name ?>
+                                </p>
+                                <p class="profile-username">
+                                    @<?php echo $user->user_username ?>
+                                </p>
+                            </div>
                         </div>
 
-                        <div class="profile-name">
-                            <p class="profile-full-name">
-                                <?php echo $user->user_name ?>
-                            </p>
-                            <p class="profile-username">
-                                @<?php echo $user->user_username ?>
-                            </p>
-                        </div>
-                    </div>
+                        <div class="profile-stats">
 
-                    <div class="profile-stats">
+                            <div class="following-stats">
+                                    <div class="profile-stats-box">
+                                        <p>
+                                            <?php echo $user->user_followers ?>
+                                        </p>
+                                        <p class="stats-title">Followers</p>
+                                    </div>
+                    
+                                    <div class="profile-stats-box">
+                                        <p>
+                                            <?php echo $user->user_following ?>
+                                        </p>
+                                        <p class="stats-title">Following</p>
+                                    </div>
+                                </div>
 
-                        <div class="following-stats">
+                            <div class="watching-stats">
                                 <div class="profile-stats-box">
                                     <p>
-                                        <?php echo $user->user_followers ?>
+                                        <?php echo $user->number_of_movies_watched ?>
                                     </p>
-                                    <p class="stats-title">Followers</p>
+                                    <p class="stats-title">Movies watched</p>
                                 </div>
                 
                                 <div class="profile-stats-box">
                                     <p>
-                                        <?php echo $user->user_following ?>
+                                        <?php echo $user->number_of_watchlist_movies ?>
                                     </p>
-                                    <p class="stats-title">Following</p>
+                                    <p class="stats-title">Movies in watchlist</p>
                                 </div>
                             </div>
-
-                        <div class="watching-stats">
-                            <div class="profile-stats-box">
-                                <p>
-                                    <?php echo $user->number_of_movies_watched ?>
-                                </p>
-                                <p class="stats-title">Movies watched</p>
-                            </div>
             
-                            <div class="profile-stats-box">
-                                <p>
-                                    <?php echo $user->number_of_watchlist_movies ?>
-                                </p>
-                                <p class="stats-title">Movies in watchlist</p>
-                            </div>
                         </div>
+                    </section>
+
+                    <section class="profile-user-friends">
+                        <div class="profile-user-following user-friends-box">
+                            <p class="user-friends-box-title">
+                                Following
+                            </p>
+                            <?php if(!empty($user_following_list)): ?>
+                                <?php foreach($user_following_list as $user_following): ?>
+                                    <a href="profile.php?user_name=<?php echo $user_following["user_username"] ?>" class="friend-account-link">
+                                        <?php echo $user_following["user_username"] ?>
+                                    </a>
+                                <?php endforeach; ?>
+
+                                <?php if($user->user_following > 10): ?>
+                                    <a href="people.php?user_name=<?php echo $_GET["user_name"] ?>&type=following&page=1" class="friend-account-link">see more...</a>
+                                <?php endif; ?>
+
+                            <?php else: ?>
+                                <p class="profile-">There's no followings</p>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="profile-user-followers user-friends-box">
+                            <p class="user-friends-box-title">
+                                Followers
+                            </p>
+                            <?php if(!empty($user_followers_list)): ?>
+                                <?php foreach($user_followers_list as $user_follower): ?>
+                                    <a href="profile.php?user_name=<?php echo $user_follower["user_username"] ?>" class="friend-account-link">
+                                        <?php echo $user_follower["user_username"] ?>
+                                    </a>
+                                <?php endforeach; ?>
+                                
+                                <?php if($user->user_followers > 10): ?>
+                                    <a href="people.php?user_name=<?php echo $_GET["user_name"] ?>&type=followers&page=1" class="friend-account-link">see more...</a>
+                                <?php endif; ?>
         
-                    </div>
-                </section>
-                                    
+                            <?php else: ?>
+                                <p>There's no followers</p>
+                            <?php endif; ?>
+                        </div>
+                    </section>
+
+                </div>
+
                 <section class="profile-movies-logged">
 
                         <div class="profile-movies-logged-label">
                             <p class="logged-label">Movies logged recently</p>
                             <?php if($user->number_of_movies_watched > 5): ?>
-                                <a href="all_movies_logged.php?user_name=<?php echo $_GET["user_name"] ?>&type=watched&page=1" class="movies-logged-see-more">See all movies</a>
+                                <a href="all_movies_logged.php?user_name=<?php echo $user->user_username ?>&type=watched&page=1" class="movies-logged-see-more">See all movies</a>
                             <?php endif; ?>
                         </div>
 
@@ -139,6 +184,7 @@
                         </div>
                         
                 </section>
+
             </div>
 
         </div>

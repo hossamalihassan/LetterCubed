@@ -13,7 +13,6 @@ async function getMovieData(movie_id){
         let movie_API_call = 'https://api.themoviedb.org/3/movie/' + movie_id +'?api_key='+ API_KEY +'&append_to_response=credits'
         returnedMovieData = await fetch(movie_API_call).then(response => response.json())
         formatMovieData(returnedMovieData)
-        console.log(returnedMovieData)
     } catch(e) {
         window.location = "page_not_found.php"
     }    

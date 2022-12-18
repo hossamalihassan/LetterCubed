@@ -118,6 +118,7 @@
     gap: 1rem;
     justify-content: center;
     width: 70%;
+    font-family: MPLUSRounded1c;
 }
 
 .movie-logged-pageination ul li {

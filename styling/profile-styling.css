@@ -1,19 +1,24 @@
 /* profile main info */
-.profile-container {
+.profile-content {
     display: flex;
     flex-direction: row;
+    gap: 3rem;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
-    margin-top: 30px;
+    flex-basis: 20%;
 }
 
 .profile-main-info {
     background-color: #D9D9D9;
-    padding: 10px;
-    flex-basis: 20%;
+    width: 100%;
     border-radius: 20px;
-    height: 100%;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    margin-top: 3rem;
 }
 
 .profile-main-info .profile-username {
@@ -174,12 +179,42 @@
     margin-top: -1.4rem;
 }
 
+.profile-user-friends {
+    font-family: MPLUSRounded1c;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.profile-user-friends .friend-account-link {
+    text-decoration: none;
+    color: #014F86;
+    display: flex;
+    justify-content: center;
+    transition: 300ms all ease-in-out;
+}
+
+.profile-user-friends .user-friends-box-title {
+    font-weight: 800;
+}
+
+.profile-user-friends .friend-account-link:hover {
+    color: #343A40;
+}
+
 /* movies logged */
 .profile-movies-logged {
     font-family: MPLUSRounded1c;
 }
 
 .profile-movies-logged-label {
+    margin-top: 2rem;
     font-size: 1.2rem;
     display: flex;
     width: 100%;
@@ -194,7 +229,7 @@
 }
 
 .profile-movies-logged-label .movies-logged-see-more:hover {
-    color: #ADB5BD
+    color: #ADB5BD;
 }
 
 @media (max-width: 808px) {
@@ -205,4 +240,13 @@
     .profile-container {
         flex-direction: column;
     }
+
+    .profile-content {
+        flex-direction: column;
+    }
+
+    .profile-user-friends {
+        margin: 0;
+    }
+
 }
