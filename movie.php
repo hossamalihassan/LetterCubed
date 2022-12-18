@@ -141,7 +141,7 @@
 
                     <?php if(!empty($movie_ratings)): ?>
                         <div class="friends-ratings">
-                            <div class="title">Friends Ratings</div>
+                            <div class="title">Friends who watched this movie</div>
                             
                             <div class="friends-ratings-content">
                                 <?php foreach($movie_ratings as $movie_rating): ?>
