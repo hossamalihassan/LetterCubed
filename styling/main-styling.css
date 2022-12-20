@@ -141,6 +141,11 @@ nav .clapboard i:hover {
     color: rgb(255, 76, 76)
 }
 
+.no-movies {
+    text-align: center;
+    font-family: MPLUSRounded1c;
+}
+
 /* main container */
 .container {
     width: 90%;

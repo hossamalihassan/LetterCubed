@@ -17,6 +17,7 @@
         
         <link rel="stylesheet" href="styling/main-styling.css">
         <link rel="stylesheet" href="styling/profile-styling.css">
+        <link rel="stylesheet" href="styling/view-all-styling.css">
         <link rel="stylesheet" href="styling/movies-logged-styling.css">
 
         <title>
@@ -150,40 +151,72 @@
 
                 </div>
 
-                <section class="profile-movies-logged">
+                <div class="user-movies">
 
-                        <div class="profile-movies-logged-label">
-                            <p class="logged-label">Movies logged recently</p>
-                            <?php if($user->number_of_movies_watched > 5): ?>
-                                <a href="all_movies_logged.php?user_name=<?php echo $user->user_username ?>&type=watched&page=1" class="movies-logged-see-more">See all movies</a>
+                    <section class="profile-movies-logged">
+
+                            <div class="profile-movies-logged-label">
+                                <p class="logged-label">Movies recently logged</p>
+                                <?php if($user->number_of_movies_watched > 5): ?>
+                                    <a href="all_movies_logged.php?user_name=<?php echo $user->user_username ?>&type=watched&page=1" class="movies-logged-see-more">See more..</a>
+                                <?php endif; ?>
+                            </div>
+
+                            <div class="user-data profile-movies-logged">
+
+                            <?php if(!empty($user_logged_movies)): ?>
+                                <?php foreach($user_logged_movies as $logged_movie): ?>
+                                    <div class="user-data-box">
+                                        <a href="movie.php?id=<?php echo $logged_movie["log_movie_id"] ?>">
+                                            <img src="https://image.tmdb.org/t/p/w500<?php echo $logged_movie["log_movie_poster"] ?>" class="box-poster profile-movie-poster animate__animated animate__fadeIn">
+                                        </a>
+
+                                        <p class="logged-movie-rating">
+                                            <?php for($i=0; $i < $logged_movie["log_movie_rating"]; $i++): ?>
+                                                <i class="fas fa-star rating-star animate__animated animate__zoomIn"></i>
+                                            <?php endfor; ?>
+                                        </p>
+
+                                    </div>
+                                <?php endforeach; ?>
+
+                            <?php else: ?>
+                                <p class="no-movies">no movies logged yet</p>
                             <?php endif; ?>
-                        </div>
 
-                        <div class="movies-logged profile-movies-logged">
+                            </div>
+                            
+                    </section>
 
-                        <?php if(!empty($user_logged_movies)): ?>
-                            <?php foreach($user_logged_movies as $logged_movie): ?>
-                                <div class="movie-watched-box">
-                                    <a href="movie.php?id=<?php echo $logged_movie["log_movie_id"] ?>">
-                                        <img src="https://image.tmdb.org/t/p/w500<?php echo $logged_movie["log_movie_poster"] ?>" class="movie-poster profile-movie-poster animate__animated animate__fadeIn">
-                                    </a>
+                    <section class="profile-movies-logged">
 
-                                    <p class="logged-movie-rating">
-                                        <?php for($i=0; $i < $logged_movie["log_movie_rating"]; $i++): ?>
-                                            <i class="fas fa-star rating-star animate__animated animate__zoomIn"></i>
-                                        <?php endfor; ?>
-                                    </p>
+                            <div class="profile-movies-logged-label">
+                                <p class="logged-label">Movies in watchlist</p>
+                                <?php if($user->number_of_watchlist_movies > 5): ?>
+                                    <a href="watchlist.php?user_name=<?php echo $user->user_username ?>&type=watchlist&page=1" class="movies-logged-see-more">See more...</a>
+                                <?php endif; ?>
+                            </div>
 
-                                </div>
-                            <?php endforeach; ?>
+                            <div class="user-data profile-movies-logged">
 
-                        <?php else: ?>
-                            <p>no movies logged yet</p>
-                        <?php endif; ?>
+                            <?php if(!empty($user_watchlist_movies)): ?>
+                                <?php foreach($user_watchlist_movies as $movie_in_watchlist): ?>
+                                    <div class="user-data-box">
+                                        <a href="movie.php?id=<?php echo $movie_in_watchlist["watchlist_log_movie_id"] ?>">
+                                            <img src="https://image.tmdb.org/t/p/w500<?php echo $movie_in_watchlist["watchlist_log_movie_poster"] ?>" class="box-poster profile-movie-poster animate__animated animate__fadeIn">
+                                        </a>
+                                    </div>
+                                <?php endforeach; ?>
 
-                        </div>
-                        
-                </section>
+                            <?php else: ?>
+                                <p class="no-movies">no movies in watchlist yet</p>
+                            <?php endif; ?>
+
+                            </div>
+                            
+                    </section>
+
+                </div>
 
             </div>
 

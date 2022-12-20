@@ -2,6 +2,10 @@
     font-family: MPLUSRounded1c;
 }
 
+.newsfeed-recently-logged {
+    justify-content: center !important;
+}
+
 .newsfeed-friends-recently-logs .title {
     text-align: center;
     margin-top: 2rem;

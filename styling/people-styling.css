@@ -1,41 +1,29 @@
-.people-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-}
-
-.people-content .friend-box {
+.friend-box {
     width: 8rem;
     display: flex;
     flex-direction: column;
     text-align: center;
-    border-radius: 20px;
 }
 
-.people-content .friend-box .friend-img {
-    width: 100%;
-    height: 12rem;
+.user-data .user-data-box .box-poster {
+    box-shadow: 0px 0px 0px;
 }
 
-.people-content .friend-box .friend-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 20px;
+.friend-box .box-poster img {
+    background-color: transparent !important; 
+    clip-path: circle();
+    object-fit: scale-down !important;
 }
 
-.people-content .friend-box .friend-username {
+.friend-box .friend-username {
     text-decoration: none;
+    text-align: center;
     margin-top: .5rem;
     font-size: 1.1rem;
     color: #014F86;
     transition: 300ms all ease-in-out;
 }
 
-.people-content .friend-box .friend-username:hover {
+.friend-box .friend-username:hover {
     color: #343A40;
 }

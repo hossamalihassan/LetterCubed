@@ -16,8 +16,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
         
         <link rel="stylesheet" href="styling/main-styling.css">
+        <link rel="stylesheet" href="styling/view-all-styling.css">
         <link rel="stylesheet" href="styling/people-styling.css">
-        <link rel="stylesheet" href="styling/movies-logged-styling.css">
 
         <title>
             <?php echo $_GET["user_name"] . "'s" ?> - <?php echo $_GET["type"]?> - <?php echo $_GET["page"] ?> - LetterCubed
@@ -29,27 +29,27 @@
         <!-- main container -->
         <div class="container">
 
-            <div class="logged-movies-user">
-                <div class="logged-movies-user-photo">
+            <div class="user-box">
+                <div class="user-box-photo">
                     <a href="profile.php?user_name=<?php echo $_GET["user_name"] ?>">
                         <img src="img/profile_pics/<?php echo ($user_profile_pic["user_profile_img"] == null) ? "profile-img-default.png"  : $user_profile_pic["user_profile_img"] ?>">
                     </a>
                 </div>
-                <p class="logged-movies-username">
+                <p class="user-box-username">
                     <a href="profile.php?user_name=<?php echo $_GET["user_name"] ?>">
                         <?php echo $_GET["user_name"] ?>
                     </a>
                 </p>
-                <p class="number-of-user-logged-movies">
+                <p class="number-of-user-stat">
                     <b><?php echo $total_friends . ' ' . $_GET["type"] ?></b>
                 </p>
             </div>
 
-            <div class="people-content">
+            <div class="user-data">
                 <?php if(!empty($user_friends)): ?>
                     <?php foreach($user_friends as $user_friend): ?>
-                        <div class="friend-box">
-                            <div class="friend-img">
+                        <div class="friend-box user-data-box">
+                            <div class="box-poster">
                                 <a href="profile.php?user_name=<?php echo $user_friend["user_username"] ?>">
                                     <img src="img/profile_pics/<?php echo ($user_friend["user_profile_img"] == null) ? "profile-img-default.png"  : $user_friend["user_profile_img"] ?>">
                                 </a>
@@ -67,7 +67,7 @@
 
             <?php if($total_pages > 1): ?>
 
-                <div class="movie-logged-pageination">
+                <div class="pageination">
                     <ul>
                         <?php for($i=1; $i <= $total_pages; $i++): ?>
                                 <a href="people.php?user_name=<?php echo $_GET["user_name"] ?>&type=<?php echo $_GET["type"] ?>&page=<?php echo $i ?>">

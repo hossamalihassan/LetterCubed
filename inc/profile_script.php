@@ -22,8 +22,9 @@
             header("location: ../lettercubed/page_not_found.php");
         }
 
-        // get 5 movies user recently logged
+        // get 5 movies user recently logged/added to watchlist
         $user_logged_movies = get_logged_movies("movies_logs", "log_user_id", $user->user_id, "log_id", 5, 1, $conn);
+        $user_watchlist_movies = get_logged_movies("watchlist_logs", "watchlist_log_user_id", $user->user_id, "watchlist_log_id", 5, 1, $conn);
 
         // get user friends
         $user_following_list = get_friends("user_id", "follower_id", $user->user_id, 1, 10, $conn);

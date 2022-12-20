@@ -19,8 +19,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
         
         <link rel="stylesheet" href="styling/main-styling.css">
-        <link rel="stylesheet" href="styling/movies-logged-styling.css">
         <link rel="stylesheet" href="styling/newsfeed-styling.css">
+        <link rel="stylesheet" href="styling/movies-logged-styling.css">
+        <link rel="stylesheet" href="styling/view-all-styling.css">
 
         <title>
             Home - LetterCubed
@@ -35,15 +36,15 @@
                 <div class="title">
                     Recently logged by people you're following
                 </div>
-                <div class="movies-logged newsfeed-recently-logged">
+                <div class="user-data newsfeed-recently-logged">
                     <?php if(!empty($user_newsfeed)): ?>
                         <?php foreach($user_newsfeed as $user_newsfeed_movie): ?>
-                            <div class="movie-watched-box">
-                            
-                                <a href="profile.php?user_name=<?php echo $user_newsfeed_movie["log_user_username"] ?>" class="recently-logged-by-friend-username"><?php echo $user_newsfeed_movie["log_user_username"]?></a>
+                            <div class="user-data-box">
+
+                                <a href="" class="recently-logged-by-friend-username"><?php echo $user_newsfeed_movie["log_user_username"]?></a>
 
                                 <a href="movie.php?id=<?php echo $user_newsfeed_movie["log_movie_id"] ?>">
-                                    <img src="https://image.tmdb.org/t/p/w500<?php echo $user_newsfeed_movie["log_movie_poster"] ?>" class="movie-poster profile-movie-poster animate__animated animate__fadeIn">
+                                    <img src="https://image.tmdb.org/t/p/w500<?php echo $user_newsfeed_movie["log_movie_poster"] ?>" class="box-poster profile-movie-poster animate__animated animate__fadeIn">
                                 </a>
 
                                 <p class="logged-movie-rating">
@@ -56,7 +57,7 @@
                         <?php endforeach; ?>
 
                     <?php else: ?>
-                        <p>there's no results</p>
+                        <p class="no-movies">there's no results</p>
                     <?php endif; ?>
                 </div>
                 

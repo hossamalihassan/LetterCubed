@@ -12,7 +12,7 @@
         $user_name = $_GET["user_name"];
         $user_id = get_from_db("user_id", "users", "user_username", $user_name, $conn)[0];
 
-        $people_per_page = 10;
+        $people_per_page = 40;
 
         if($_GET["type"] == "followers"){
             $total_friends = get_count_of_rows("users_followers", "user_id", $user_id["user_id"], $conn);
